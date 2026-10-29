@@ -1,0 +1,40 @@
+{
+  "app_name": "KisanSathi Rajasthan",
+  "app_tagline": "AI Decision-Support System for Rajasthan Farmers",
+  "nav": {
+    "home": "Home",
+    "chat": "Advisor Chat",
+    "diagnose": "Crop Disease",
+    "yield": "Yield Outlook",
+    "prices": "Mandi Prices",
+    "weather": "Weather & Irrigation",
+    "history": "History",
+    "about": "About Portal",
+    "login": "Login",
+    "logout": "Logout"
+  },
+  "disclaimer": "Advice is decision-support guidance, not a substitute for an expert.",
+  "offline_notice": "You are offline. Showing cached records.",
+  "home": {
+    "welcome": "Welcome Farmer!",
+    "profile_summary": "Your Farm Profile",
+    "feature_chat": "Advisor Chat",
+    "feature_chat_desc": "Ask crop questions in Hindi or English (Voice & Text) with verified sources",
+    "feature_diagnose": "Disease Detection",
+    "feature_diagnose_desc": "Diagnose crop leaf diseases via photo (In-browser ONNX with KVK fallback)",
+    "feature_yield": "District Yield Outlook",
+    "feature_yield_desc": "District crop yield forecast and feature drivers (ML + Baseline)",
+    "feature_prices": "Mandi Prices & Trends",
+    "feature_prices_desc": "Rajasthan APMC mandi rates and 2-4 week forecast ranges",
+    "feature_weather": "Weather & Irrigation",
+    "feature_weather_desc": "FAO-56 evapotranspiration irrigation advisory and regional weather alerts"
+  },
+  "common": {
+    "submit": "Submit",
+    "loading": "Loading...",
+    "error": "Error",
+    "retry": "Retry",
+    "view_sources": "View Verified Sources",
+    "baseline_notice": "Data currently derived from verified baseline statistics."
+  }
+}

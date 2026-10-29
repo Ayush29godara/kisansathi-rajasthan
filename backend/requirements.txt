@@ -1,0 +1,27 @@
+# FastAPI & ASGI Web Server
+fastapi==0.115.8
+uvicorn[standard]==0.34.0
+pydantic==2.10.6
+pydantic-settings==2.7.1
+python-multipart==0.0.20
+
+# Database & Authentication
+sqlalchemy==2.0.38
+psycopg2-binary==2.9.10
+pyjwt[crypto]==2.10.1
+
+# HTTP Client & Utilities
+httpx==0.28.1
+pillow==11.1.0
+
+# Gemini API (used solely for grounded language generation and pgvector embeddings)
+google-generativeai==0.8.4
+
+# Tabular ML inference (lightweight, zero PyTorch/Transformers on server)
+numpy==2.2.3
+scikit-learn==1.6.1
+joblib==1.4.2
+
+# Testing & Quality
+pytest==8.3.4
+pytest-asyncio==0.25.3

@@ -1,0 +1,200 @@
+[
+  {
+    "district": "Ajmer",
+    "zone": "III-A",
+    "zone_name": "Semi-Arid Eastern Plain",
+    "annual_rainfall_mm": 527
+  },
+  {
+    "district": "Alwar",
+    "zone": "III-B",
+    "zone_name": "Flood Prone Eastern Plain",
+    "annual_rainfall_mm": 638
+  },
+  {
+    "district": "Banswara",
+    "zone": "IV-B",
+    "zone_name": "Sub-Humid Southern Plains and Aravalli Hills",
+    "annual_rainfall_mm": 922
+  },
+  {
+    "district": "Baran",
+    "zone": "V",
+    "zone_name": "Humid South Eastern Plain",
+    "annual_rainfall_mm": 854
+  },
+  {
+    "district": "Barmer",
+    "zone": "II-B",
+    "zone_name": "Transitional Plain of Luni Basin",
+    "annual_rainfall_mm": 277
+  },
+  {
+    "district": "Bharatpur",
+    "zone": "III-B",
+    "zone_name": "Flood Prone Eastern Plain",
+    "annual_rainfall_mm": 664
+  },
+  {
+    "district": "Bhilwara",
+    "zone": "IV-A",
+    "zone_name": "Sub-Humid Southern Plain",
+    "annual_rainfall_mm": 647
+  },
+  {
+    "district": "Bikaner",
+    "zone": "I-C",
+    "zone_name": "Hyper Arid Partially Irrigated Western Plain",
+    "annual_rainfall_mm": 263
+  },
+  {
+    "district": "Bundi",
+    "zone": "V",
+    "zone_name": "Humid South Eastern Plain",
+    "annual_rainfall_mm": 743
+  },
+  {
+    "district": "Chittorgarh",
+    "zone": "IV-B",
+    "zone_name": "Sub-Humid Southern Plains",
+    "annual_rainfall_mm": 765
+  },
+  {
+    "district": "Churu",
+    "zone": "I-C",
+    "zone_name": "Hyper Arid Western Plain",
+    "annual_rainfall_mm": 350
+  },
+  {
+    "district": "Dausa",
+    "zone": "III-A",
+    "zone_name": "Semi-Arid Eastern Plain",
+    "annual_rainfall_mm": 634
+  },
+  {
+    "district": "Dholpur",
+    "zone": "III-B",
+    "zone_name": "Flood Prone Eastern Plain",
+    "annual_rainfall_mm": 670
+  },
+  {
+    "district": "Dungarpur",
+    "zone": "IV-B",
+    "zone_name": "Sub-Humid Southern Plains",
+    "annual_rainfall_mm": 761
+  },
+  {
+    "district": "Hanumangarh",
+    "zone": "I-B",
+    "zone_name": "Irrigated North-Western Plain",
+    "annual_rainfall_mm": 312
+  },
+  {
+    "district": "Jaipur",
+    "zone": "III-A",
+    "zone_name": "Semi-Arid Eastern Plain",
+    "annual_rainfall_mm": 548
+  },
+  {
+    "district": "Jaisalmer",
+    "zone": "I-A",
+    "zone_name": "Arid Western Plain",
+    "annual_rainfall_mm": 164
+  },
+  {
+    "district": "Jalore",
+    "zone": "II-B",
+    "zone_name": "Transitional Plain of Luni Basin",
+    "annual_rainfall_mm": 412
+  },
+  {
+    "district": "Jhalawar",
+    "zone": "V",
+    "zone_name": "Humid South Eastern Plain",
+    "annual_rainfall_mm": 944
+  },
+  {
+    "district": "Jhunjhunu",
+    "zone": "II-A",
+    "zone_name": "Transitional Plain of Inland Drainage",
+    "annual_rainfall_mm": 484
+  },
+  {
+    "district": "Jodhpur",
+    "zone": "I-A",
+    "zone_name": "Arid Western Plain",
+    "annual_rainfall_mm": 363
+  },
+  {
+    "district": "Karauli",
+    "zone": "III-B",
+    "zone_name": "Flood Prone Eastern Plain",
+    "annual_rainfall_mm": 688
+  },
+  {
+    "district": "Kota",
+    "zone": "V",
+    "zone_name": "Humid South Eastern Plain",
+    "annual_rainfall_mm": 786
+  },
+  {
+    "district": "Nagaur",
+    "zone": "II-A",
+    "zone_name": "Transitional Plain of Inland Drainage",
+    "annual_rainfall_mm": 363
+  },
+  {
+    "district": "Pali",
+    "zone": "II-B",
+    "zone_name": "Transitional Plain of Luni Basin",
+    "annual_rainfall_mm": 490
+  },
+  {
+    "district": "Pratapgarh",
+    "zone": "IV-B",
+    "zone_name": "Sub-Humid Southern Plains",
+    "annual_rainfall_mm": 890
+  },
+  {
+    "district": "Rajsamand",
+    "zone": "IV-A",
+    "zone_name": "Sub-Humid Southern Plain",
+    "annual_rainfall_mm": 540
+  },
+  {
+    "district": "Sawai Madhopur",
+    "zone": "III-B",
+    "zone_name": "Flood Prone Eastern Plain",
+    "annual_rainfall_mm": 687
+  },
+  {
+    "district": "Sikar",
+    "zone": "II-A",
+    "zone_name": "Transitional Plain of Inland Drainage",
+    "annual_rainfall_mm": 466
+  },
+  {
+    "district": "Sirohi",
+    "zone": "II-B",
+    "zone_name": "Transitional Plain of Luni Basin",
+    "annual_rainfall_mm": 665
+  },
+  {
+    "district": "Sri Ganganagar",
+    "zone": "I-B",
+    "zone_name": "Irrigated North-Western Plain",
+    "annual_rainfall_mm": 260
+  },
+  {
+    "district": "Tonk",
+    "zone": "III-A",
+    "zone_name": "Semi-Arid Eastern Plain",
+    "annual_rainfall_mm": 613
+  },
+  {
+    "district": "Udaipur",
+    "zone": "IV-A",
+    "zone_name": "Sub-Humid Southern Plain",
+    "annual_rainfall_mm": 637
+  }
+]

@@ -1,0 +1,12 @@
+[
+  { "id": "mandi_alwar", "name": "Alwar", "district": "Alwar", "major_commodities": ["Mustard", "Bajra", "Wheat", "Gram"] },
+  { "id": "mandi_kota", "name": "Kota (Bhamashah Mandi)", "district": "Kota", "major_commodities": ["Soybean", "Wheat", "Mustard", "Coriander"] },
+  { "id": "mandi_jaipur_surajpole", "name": "Jaipur (Surajpole Grain)", "district": "Jaipur", "major_commodities": ["Wheat", "Bajra", "Gram", "Mustard"] },
+  { "id": "mandi_bikaner", "name": "Bikaner (Grain)", "district": "Bikaner", "major_commodities": ["Guar", "Moong", "Moth bean", "Wheat"] },
+  { "id": "mandi_jodhpur", "name": "Jodhpur (Mandore)", "district": "Jodhpur", "major_commodities": ["Cumin", "Guar", "Moong", "Bajra"] },
+  { "id": "mandi_sriganganagar", "name": "Sri Ganganagar", "district": "Sri Ganganagar", "major_commodities": ["Wheat", "Mustard", "Cotton", "Guar"] },
+  { "id": "mandi_nagaur", "name": "Nagaur", "district": "Nagaur", "major_commodities": ["Moong", "Guar", "Bajra", "Fenugreek"] },
+  { "id": "mandi_merta_city", "name": "Merta City", "district": "Nagaur", "major_commodities": ["Moong", "Cumin", "Isabgol", "Guar"] },
+  { "id": "mandi_baran", "name": "Baran", "district": "Baran", "major_commodities": ["Soybean", "Mustard", "Garlic", "Wheat"] },
+  { "id": "mandi_bharatpur", "name": "Bharatpur", "district": "Bharatpur", "major_commodities": ["Mustard", "Wheat", "Bajra"] }
+]

@@ -1,0 +1,26 @@
+{
+  "disease": {
+    "confidence_threshold": 0.70,
+    "fallback_message_hi": "सटीक पहचान नहीं हो सकी। कृपया निकटतम कृषि विज्ञान केंद्र (KVK) से संपर्क करें।",
+    "fallback_message_en": "Confidence is below threshold. Please contact your nearest Krishi Vigyan Kendra (KVK)."
+  },
+  "weather": {
+    "heatwave_celsius": 44.0,
+    "coldwave_celsius": 4.0,
+    "heavy_rainfall_mm": 50.0,
+    "high_wind_kmh": 40.0
+  },
+  "fao56_irrigation": {
+    "default_soil_mad": 0.50,
+    "efficiency_canal": 0.60,
+    "efficiency_tubewell": 0.75,
+    "efficiency_drip": 0.90,
+    "efficiency_sprinkler": 0.80
+  },
+  "model_versions": {
+    "baseline": "baseline",
+    "yield_active": "baseline",
+    "price_active": "baseline",
+    "disease_active": "baseline"
+  }
+}

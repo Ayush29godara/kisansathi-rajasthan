@@ -1,0 +1,92 @@
+[
+  {
+    "id": "bajra",
+    "name": "Bajra",
+    "hindi_name": "बाजरा (Pearl Millet)",
+    "season": "Kharif",
+    "typical_duration_days": 85,
+    "water_req_mm": 350,
+    "critical_irrigation_stages": ["Tillering", "Flowering", "Grain filling"]
+  },
+  {
+    "id": "mustard",
+    "name": "Mustard",
+    "hindi_name": "सरसों / राया (Mustard)",
+    "season": "Rabi",
+    "typical_duration_days": 125,
+    "water_req_mm": 400,
+    "critical_irrigation_stages": ["Pre-sowing", "Flowering", "Pod formation"]
+  },
+  {
+    "id": "wheat",
+    "name": "Wheat",
+    "hindi_name": "गेहूं (Wheat)",
+    "season": "Rabi",
+    "typical_duration_days": 130,
+    "water_req_mm": 500,
+    "critical_irrigation_stages": ["Crown root initiation (CRI)", "Tillering", "Late jointing", "Flowering", "Milking", "Dough"]
+  },
+  {
+    "id": "moong",
+    "name": "Moong",
+    "hindi_name": "मूंग (Green Gram)",
+    "season": "Kharif",
+    "typical_duration_days": 65,
+    "water_req_mm": 300,
+    "critical_irrigation_stages": ["Branching", "Pod initiation"]
+  },
+  {
+    "id": "guar",
+    "name": "Guar",
+    "hindi_name": "ग्वार (Cluster Bean)",
+    "season": "Kharif",
+    "typical_duration_days": 90,
+    "water_req_mm": 300,
+    "critical_irrigation_stages": ["Flowering", "Pod formation"]
+  },
+  {
+    "id": "gram",
+    "name": "Gram",
+    "hindi_name": "चना (Chickpea)",
+    "season": "Rabi",
+    "typical_duration_days": 115,
+    "water_req_mm": 300,
+    "critical_irrigation_stages": ["Pre-flowering", "Pod development"]
+  },
+  {
+    "id": "soybean",
+    "name": "Soybean",
+    "hindi_name": "सोयाबीन (Soybean)",
+    "season": "Kharif",
+    "typical_duration_days": 95,
+    "water_req_mm": 550,
+    "critical_irrigation_stages": ["Flowering", "Pod development"]
+  },
+  {
+    "id": "cotton",
+    "name": "Cotton",
+    "hindi_name": "कपास (Cotton)",
+    "season": "Kharif",
+    "typical_duration_days": 160,
+    "water_req_mm": 700,
+    "critical_irrigation_stages": ["Squaring", "Flowering", "Boll development"]
+  },
+  {
+    "id": "cumin",
+    "name": "Cumin",
+    "hindi_name": "जीरा (Jeera)",
+    "season": "Rabi",
+    "typical_duration_days": 110,
+    "water_req_mm": 200,
+    "critical_irrigation_stages": ["Germination", "Flowering", "Seed formation"]
+  },
+  {
+    "id": "isabgol",
+    "name": "Isabgol",
+    "hindi_name": "ईसबगोल (Psyllium Husk)",
+    "season": "Rabi",
+    "typical_duration_days": 120,
+    "water_req_mm": 200,
+    "critical_irrigation_stages": ["Early growth", "Spike emergence"]
+  }
+]
