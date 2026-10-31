@@ -4,23 +4,28 @@ Mandi Price Forecasting Evaluation Pipeline: Walk-Forward Validation
 across 14-day and 28-day forecasting horizons.
 
 Usage:
-    python scripts/evaluate_price.py --input data/mandi_prices_history.csv --commodity mustard --mandi Alwar
+    python scripts/evaluate_price.py --input data/mandi_data/cleaned_mandi.csv --commodity mustard --mandi Alwar
 """
 
 import os
 import sys
 import csv
+import math
 import argparse
 from datetime import datetime
 from typing import List, Dict, Any
-import numpy as np
+
+try:
+    import numpy as np
+except ImportError:
+    np = None
 
 
 def run_walk_forward_evaluation(
     records: List[Dict[str, Any]],
     horizon_days: int = 14,
-    min_train_size: int = 60,
-) -> Dict[str, float]:
+    min_train_size: int = 14,
+) -> Dict[str, Any]:
     """
     Perform walk-forward validation:
     Train window expands, model predicts t + horizon_days, evaluate error.
@@ -55,10 +60,17 @@ def run_walk_forward_evaluation(
             correct_directions += 1
         total_direction_checks += 1
 
-    y_t = np.array(y_true)
-    y_p = np.array(y_pred_baseline)
-    mae = float(np.mean(np.abs(y_t - y_p)))
-    rmse = float(np.sqrt(np.mean((y_t - y_p) ** 2)))
+    if np is not None:
+        y_t = np.array(y_true)
+        y_p = np.array(y_pred_baseline)
+        mae = float(np.mean(np.abs(y_t - y_p)))
+        rmse = float(np.sqrt(np.mean((y_t - y_p) ** 2)))
+    else:
+        abs_diffs = [abs(yt - yp) for yt, yp in zip(y_true, y_pred_baseline)]
+        sq_diffs = [(yt - yp) ** 2 for yt, yp in zip(y_true, y_pred_baseline)]
+        mae = sum(abs_diffs) / max(len(abs_diffs), 1)
+        rmse = math.sqrt(sum(sq_diffs) / max(len(sq_diffs), 1))
+
     dir_acc = float((correct_directions / max(total_direction_checks, 1)) * 100.0)
 
     return {
@@ -72,7 +84,7 @@ def run_walk_forward_evaluation(
 
 def main():
     parser = argparse.ArgumentParser(description="Walk-Forward Mandi Price Evaluation")
-    parser.add_argument("--input", type=str, default="data/mandi_prices_history.csv", help="Historical price CSV")
+    parser.add_argument("--input", type=str, default="data/mandi_data/cleaned_mandi.csv", help="Historical price CSV")
     parser.add_argument("--commodity", type=str, default="mustard", help="Target commodity")
     parser.add_argument("--mandi", type=str, default="Alwar", help="Target mandi")
     args = parser.parse_args()
@@ -99,10 +111,16 @@ def main():
 
     print(f"[*] Running Walk-Forward Evaluation for {args.commodity.upper()} at {args.mandi} ({len(records)} days)")
     res_14 = run_walk_forward_evaluation(records, horizon_days=14)
-    print(f" -> 14-Day Horizon Baseline: MAE=₹{res_14.get('mae')}, RMSE=₹{res_14.get('rmse')}, Direction Acc={res_14.get('directional_accuracy_pct')}%")
+    if "error" in res_14:
+        print(f" -> 14-Day Horizon: {res_14['error']}")
+    else:
+        print(f" -> 14-Day Horizon Baseline: MAE=₹{res_14.get('mae')}, RMSE=₹{res_14.get('rmse')}, Direction Acc={res_14.get('directional_accuracy_pct')}%")
 
     res_28 = run_walk_forward_evaluation(records, horizon_days=28)
-    print(f" -> 28-Day Horizon Baseline: MAE=₹{res_28.get('mae')}, RMSE=₹{res_28.get('rmse')}, Direction Acc={res_28.get('directional_accuracy_pct')}%")
+    if "error" in res_28:
+        print(f" -> 28-Day Horizon: {res_28['error']}")
+    else:
+        print(f" -> 28-Day Horizon Baseline: MAE=₹{res_28.get('mae')}, RMSE=₹{res_28.get('rmse')}, Direction Acc={res_28.get('directional_accuracy_pct')}%")
 
 
 if __name__ == "__main__":

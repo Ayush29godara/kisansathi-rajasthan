@@ -24,7 +24,7 @@ class Settings(BaseSettings):
 
     # Google Gemini LLM API
     GEMINI_API_KEY: str = ""
-    GEMINI_MODEL: str = "gemini-1.5-flash"
+    GEMINI_MODEL: str = "gemini-3.5-flash-lite"
 
     # Default model versioning
     DEFAULT_MODEL_VERSION: str = "baseline"

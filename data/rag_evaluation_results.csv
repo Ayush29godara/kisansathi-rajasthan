@@ -1,0 +1,113 @@
+question,language,expected_intent,detected_intent,gemini_alone_answer,gemini_rag_answer,sources_used,num_sources
+सरसों में सफेद रोली (White Rust) का उपचार क्या है?,hi,disease,disease,[Baseline Ungrounded Response (hi)]: General advice regarding: सरसों में सफेद रोली (White Rust) का उपचार क्या है?,"कृषि वैज्ञानिक स्रोतों से प्राप्त जानकारी:
+
+[1] ICAR Package of Practices for Rajasthan (ICAR-CAZRI Jodhpur / Agriculture University Kota):
+राजस्थान में सरसों और बाजरा की उन्नत किस्मों, संतुलित उर्वरक (NPK) एवं सामयिक सिंचाई प्रबंधन से फसल की उत्पादकता 20-30% तक बढ़ाई जा सकती है। रोग नियंत्रण हेतु केवल अनुशंसित मात्रा में ही जैव या रासायनिक उपचार करें।
+
+[2] KVK Rajasthan Advisory Bulletin (Krishi Vigyan Kendra, Jaipur):
+सरसों में सफेद रोली (White Rust) रोग के लक्षण दिखने पर Mancozeb 75 WP @ 2.5 ग्राम/लीटर पानी में घोलकर छिड़काव करें। दूसरा छिड़काव 15 दिन बाद करें। बीज उपचार Metalaxyl से करें।","[ICAR Package of Practices for Rajasthan | ICAR-CAZRI Jodhpur / Agriculture University Kota]; [KVK Rajasthan Advisory Bulletin | Krishi Vigyan Kendra, Jaipur]",2
+जयपुर जिले में बाजरे की पैदावार कितनी हो सकती है?,hi,yield,yield,[Baseline Ungrounded Response (hi)]: General advice regarding: जयपुर जिले में बाजरे की पैदावार कितनी हो सकती है?,"कृषि वैज्ञानिक स्रोतों से प्राप्त जानकारी:
+
+[1] ICAR Package of Practices for Rajasthan (ICAR-CAZRI Jodhpur / Agriculture University Kota):
+राजस्थान में सरसों और बाजरा की उन्नत किस्मों, संतुलित उर्वरक (NPK) एवं सामयिक सिंचाई प्रबंधन से फसल की उत्पादकता 20-30% तक बढ़ाई जा सकती है। रोग नियंत्रण हेतु केवल अनुशंसित मात्रा में ही जैव या रासायनिक उपचार करें।
+
+[2] KVK Rajasthan Advisory Bulletin (Krishi Vigyan Kendra, Jaipur):
+सरसों में सफेद रोली (White Rust) रोग के लक्षण दिखने पर Mancozeb 75 WP @ 2.5 ग्राम/लीटर पानी में घोलकर छिड़काव करें। दूसरा छिड़काव 15 दिन बाद करें। बीज उपचार Metalaxyl से करें।","[ICAR Package of Practices for Rajasthan | ICAR-CAZRI Jodhpur / Agriculture University Kota]; [KVK Rajasthan Advisory Bulletin | Krishi Vigyan Kendra, Jaipur]",2
+कोटा मंडी में सरसों और सोयाबीन का भाव क्या है?,hi,price,price,[Baseline Ungrounded Response (hi)]: General advice regarding: कोटा मंडी में सरसों और सोयाबीन का भाव क्या है?,"कृषि वैज्ञानिक स्रोतों से प्राप्त जानकारी:
+
+[1] ICAR Package of Practices for Rajasthan (ICAR-CAZRI Jodhpur / Agriculture University Kota):
+राजस्थान में सरसों और बाजरा की उन्नत किस्मों, संतुलित उर्वरक (NPK) एवं सामयिक सिंचाई प्रबंधन से फसल की उत्पादकता 20-30% तक बढ़ाई जा सकती है। रोग नियंत्रण हेतु केवल अनुशंसित मात्रा में ही जैव या रासायनिक उपचार करें।
+
+[2] KVK Rajasthan Advisory Bulletin (Krishi Vigyan Kendra, Jaipur):
+सरसों में सफेद रोली (White Rust) रोग के लक्षण दिखने पर Mancozeb 75 WP @ 2.5 ग्राम/लीटर पानी में घोलकर छिड़काव करें। दूसरा छिड़काव 15 दिन बाद करें। बीज उपचार Metalaxyl से करें।","[ICAR Package of Practices for Rajasthan | ICAR-CAZRI Jodhpur / Agriculture University Kota]; [KVK Rajasthan Advisory Bulletin | Krishi Vigyan Kendra, Jaipur]",2
+अगले 3 दिनों में राजस्थान में बारिश होगी क्या?,hi,weather,weather,[Baseline Ungrounded Response (hi)]: General advice regarding: अगले 3 दिनों में राजस्थान में बारिश होगी क्या?,"कृषि वैज्ञानिक स्रोतों से प्राप्त जानकारी:
+
+[1] ICAR Package of Practices for Rajasthan (ICAR-CAZRI Jodhpur / Agriculture University Kota):
+राजस्थान में सरसों और बाजरा की उन्नत किस्मों, संतुलित उर्वरक (NPK) एवं सामयिक सिंचाई प्रबंधन से फसल की उत्पादकता 20-30% तक बढ़ाई जा सकती है। रोग नियंत्रण हेतु केवल अनुशंसित मात्रा में ही जैव या रासायनिक उपचार करें।
+
+[2] KVK Rajasthan Advisory Bulletin (Krishi Vigyan Kendra, Jaipur):
+सरसों में सफेद रोली (White Rust) रोग के लक्षण दिखने पर Mancozeb 75 WP @ 2.5 ग्राम/लीटर पानी में घोलकर छिड़काव करें। दूसरा छिड़काव 15 दिन बाद करें। बीज उपचार Metalaxyl से करें।","[ICAR Package of Practices for Rajasthan | ICAR-CAZRI Jodhpur / Agriculture University Kota]; [KVK Rajasthan Advisory Bulletin | Krishi Vigyan Kendra, Jaipur]",2
+सरसों की बुवाई का सही समय क्या है?,hi,general,general,[Baseline Ungrounded Response (hi)]: General advice regarding: सरसों की बुवाई का सही समय क्या है?,"कृषि वैज्ञानिक स्रोतों से प्राप्त जानकारी:
+
+[1] ICAR Package of Practices for Rajasthan (ICAR-CAZRI Jodhpur / Agriculture University Kota):
+राजस्थान में सरसों और बाजरा की उन्नत किस्मों, संतुलित उर्वरक (NPK) एवं सामयिक सिंचाई प्रबंधन से फसल की उत्पादकता 20-30% तक बढ़ाई जा सकती है। रोग नियंत्रण हेतु केवल अनुशंसित मात्रा में ही जैव या रासायनिक उपचार करें।
+
+[2] KVK Rajasthan Advisory Bulletin (Krishi Vigyan Kendra, Jaipur):
+सरसों में सफेद रोली (White Rust) रोग के लक्षण दिखने पर Mancozeb 75 WP @ 2.5 ग्राम/लीटर पानी में घोलकर छिड़काव करें। दूसरा छिड़काव 15 दिन बाद करें। बीज उपचार Metalaxyl से करें।","[ICAR Package of Practices for Rajasthan | ICAR-CAZRI Jodhpur / Agriculture University Kota]; [KVK Rajasthan Advisory Bulletin | Krishi Vigyan Kendra, Jaipur]",2
+गेहूं की फसल में संतुलित खाद की कितनी मात्रा डालें?,hi,general,general,[Baseline Ungrounded Response (hi)]: General advice regarding: गेहूं की फसल में संतुलित खाद की कितनी मात्रा डालें?,"कृषि वैज्ञानिक स्रोतों से प्राप्त जानकारी:
+
+[1] ICAR Package of Practices for Rajasthan (ICAR-CAZRI Jodhpur / Agriculture University Kota):
+राजस्थान में सरसों और बाजरा की उन्नत किस्मों, संतुलित उर्वरक (NPK) एवं सामयिक सिंचाई प्रबंधन से फसल की उत्पादकता 20-30% तक बढ़ाई जा सकती है। रोग नियंत्रण हेतु केवल अनुशंसित मात्रा में ही जैव या रासायनिक उपचार करें।
+
+[2] KVK Rajasthan Advisory Bulletin (Krishi Vigyan Kendra, Jaipur):
+सरसों में सफेद रोली (White Rust) रोग के लक्षण दिखने पर Mancozeb 75 WP @ 2.5 ग्राम/लीटर पानी में घोलकर छिड़काव करें। दूसरा छिड़काव 15 दिन बाद करें। बीज उपचार Metalaxyl से करें।","[ICAR Package of Practices for Rajasthan | ICAR-CAZRI Jodhpur / Agriculture University Kota]; [KVK Rajasthan Advisory Bulletin | Krishi Vigyan Kendra, Jaipur]",2
+What is the best drought-tolerant mustard variety for Bikaner?,en,general,general,[Baseline Ungrounded Response (en)]: General advice regarding: What is the best drought-tolerant mustard variety for Bikaner?,"Information retrieved from verified agricultural sources:
+
+[1] ICAR Package of Practices for Rajasthan (ICAR-CAZRI Jodhpur / Agriculture University Kota):
+राजस्थान में सरसों और बाजरा की उन्नत किस्मों, संतुलित उर्वरक (NPK) एवं सामयिक सिंचाई प्रबंधन से फसल की उत्पादकता 20-30% तक बढ़ाई जा सकती है। रोग नियंत्रण हेतु केवल अनुशंसित मात्रा में ही जैव या रासायनिक उपचार करें।
+
+[2] KVK Rajasthan Advisory Bulletin (Krishi Vigyan Kendra, Jaipur):
+सरसों में सफेद रोली (White Rust) रोग के लक्षण दिखने पर Mancozeb 75 WP @ 2.5 ग्राम/लीटर पानी में घोलकर छिड़काव करें। दूसरा छिड़काव 15 दिन बाद करें। बीज उपचार Metalaxyl से करें।","[ICAR Package of Practices for Rajasthan | ICAR-CAZRI Jodhpur / Agriculture University Kota]; [KVK Rajasthan Advisory Bulletin | Krishi Vigyan Kendra, Jaipur]",2
+गेहूं की फसल में पहली सिंचाई (CRI स्टेज) कब करनी चाहिए?,hi,weather,weather,[Baseline Ungrounded Response (hi)]: General advice regarding: गेहूं की फसल में पहली सिंचाई (CRI स्टेज) कब करनी चाहिए?,"कृषि वैज्ञानिक स्रोतों से प्राप्त जानकारी:
+
+[1] ICAR Package of Practices for Rajasthan (ICAR-CAZRI Jodhpur / Agriculture University Kota):
+राजस्थान में सरसों और बाजरा की उन्नत किस्मों, संतुलित उर्वरक (NPK) एवं सामयिक सिंचाई प्रबंधन से फसल की उत्पादकता 20-30% तक बढ़ाई जा सकती है। रोग नियंत्रण हेतु केवल अनुशंसित मात्रा में ही जैव या रासायनिक उपचार करें।
+
+[2] KVK Rajasthan Advisory Bulletin (Krishi Vigyan Kendra, Jaipur):
+सरसों में सफेद रोली (White Rust) रोग के लक्षण दिखने पर Mancozeb 75 WP @ 2.5 ग्राम/लीटर पानी में घोलकर छिड़काव करें। दूसरा छिड़काव 15 दिन बाद करें। बीज उपचार Metalaxyl से करें।","[ICAR Package of Practices for Rajasthan | ICAR-CAZRI Jodhpur / Agriculture University Kota]; [KVK Rajasthan Advisory Bulletin | Krishi Vigyan Kendra, Jaipur]",2
+शेयर बाजार में इंट्राडे ट्रेडिंग कैसे करें?,hi,general,price,[Baseline Ungrounded Response (hi)]: General advice regarding: शेयर बाजार में इंट्राडे ट्रेडिंग कैसे करें?,"कृषि वैज्ञानिक स्रोतों से प्राप्त जानकारी:
+
+[1] ICAR Package of Practices for Rajasthan (ICAR-CAZRI Jodhpur / Agriculture University Kota):
+राजस्थान में सरसों और बाजरा की उन्नत किस्मों, संतुलित उर्वरक (NPK) एवं सामयिक सिंचाई प्रबंधन से फसल की उत्पादकता 20-30% तक बढ़ाई जा सकती है। रोग नियंत्रण हेतु केवल अनुशंसित मात्रा में ही जैव या रासायनिक उपचार करें।
+
+[2] KVK Rajasthan Advisory Bulletin (Krishi Vigyan Kendra, Jaipur):
+सरसों में सफेद रोली (White Rust) रोग के लक्षण दिखने पर Mancozeb 75 WP @ 2.5 ग्राम/लीटर पानी में घोलकर छिड़काव करें। दूसरा छिड़काव 15 दिन बाद करें। बीज उपचार Metalaxyl से करें।","[ICAR Package of Practices for Rajasthan | ICAR-CAZRI Jodhpur / Agriculture University Kota]; [KVK Rajasthan Advisory Bulletin | Krishi Vigyan Kendra, Jaipur]",2
+IPL 2026 का फाइनल मैच कौन सी टीम जीतेगी?,hi,general,general,[Baseline Ungrounded Response (hi)]: General advice regarding: IPL 2026 का फाइनल मैच कौन सी टीम जीतेगी?,"कृषि वैज्ञानिक स्रोतों से प्राप्त जानकारी:
+
+[1] ICAR Package of Practices for Rajasthan (ICAR-CAZRI Jodhpur / Agriculture University Kota):
+राजस्थान में सरसों और बाजरा की उन्नत किस्मों, संतुलित उर्वरक (NPK) एवं सामयिक सिंचाई प्रबंधन से फसल की उत्पादकता 20-30% तक बढ़ाई जा सकती है। रोग नियंत्रण हेतु केवल अनुशंसित मात्रा में ही जैव या रासायनिक उपचार करें।
+
+[2] KVK Rajasthan Advisory Bulletin (Krishi Vigyan Kendra, Jaipur):
+सरसों में सफेद रोली (White Rust) रोग के लक्षण दिखने पर Mancozeb 75 WP @ 2.5 ग्राम/लीटर पानी में घोलकर छिड़काव करें। दूसरा छिड़काव 15 दिन बाद करें। बीज उपचार Metalaxyl से करें।","[ICAR Package of Practices for Rajasthan | ICAR-CAZRI Jodhpur / Agriculture University Kota]; [KVK Rajasthan Advisory Bulletin | Krishi Vigyan Kendra, Jaipur]",2
+घर पर इटालियन चीज़ पिज्जा बनाने की विधि बताएं,hi,general,general,[Baseline Ungrounded Response (hi)]: General advice regarding: घर पर इटालियन चीज़ पिज्जा बनाने की विधि बताएं,"कृषि वैज्ञानिक स्रोतों से प्राप्त जानकारी:
+
+[1] ICAR Package of Practices for Rajasthan (ICAR-CAZRI Jodhpur / Agriculture University Kota):
+राजस्थान में सरसों और बाजरा की उन्नत किस्मों, संतुलित उर्वरक (NPK) एवं सामयिक सिंचाई प्रबंधन से फसल की उत्पादकता 20-30% तक बढ़ाई जा सकती है। रोग नियंत्रण हेतु केवल अनुशंसित मात्रा में ही जैव या रासायनिक उपचार करें।
+
+[2] KVK Rajasthan Advisory Bulletin (Krishi Vigyan Kendra, Jaipur):
+सरसों में सफेद रोली (White Rust) रोग के लक्षण दिखने पर Mancozeb 75 WP @ 2.5 ग्राम/लीटर पानी में घोलकर छिड़काव करें। दूसरा छिड़काव 15 दिन बाद करें। बीज उपचार Metalaxyl से करें।","[ICAR Package of Practices for Rajasthan | ICAR-CAZRI Jodhpur / Agriculture University Kota]; [KVK Rajasthan Advisory Bulletin | Krishi Vigyan Kendra, Jaipur]",2
+राजस्थान की राजधानी और प्रमुख पर्यटन स्थल कौन से हैं?,hi,general,general,[Baseline Ungrounded Response (hi)]: General advice regarding: राजस्थान की राजधानी और प्रमुख पर्यटन स्थल कौन से हैं?,"कृषि वैज्ञानिक स्रोतों से प्राप्त जानकारी:
+
+[1] ICAR Package of Practices for Rajasthan (ICAR-CAZRI Jodhpur / Agriculture University Kota):
+राजस्थान में सरसों और बाजरा की उन्नत किस्मों, संतुलित उर्वरक (NPK) एवं सामयिक सिंचाई प्रबंधन से फसल की उत्पादकता 20-30% तक बढ़ाई जा सकती है। रोग नियंत्रण हेतु केवल अनुशंसित मात्रा में ही जैव या रासायनिक उपचार करें।
+
+[2] KVK Rajasthan Advisory Bulletin (Krishi Vigyan Kendra, Jaipur):
+सरसों में सफेद रोली (White Rust) रोग के लक्षण दिखने पर Mancozeb 75 WP @ 2.5 ग्राम/लीटर पानी में घोलकर छिड़काव करें। दूसरा छिड़काव 15 दिन बाद करें। बीज उपचार Metalaxyl से करें।","[ICAR Package of Practices for Rajasthan | ICAR-CAZRI Jodhpur / Agriculture University Kota]; [KVK Rajasthan Advisory Bulletin | Krishi Vigyan Kendra, Jaipur]",2
+जियो मोबाइल का 299 वाला रिचार्ज कैसे करें?,hi,general,general,[Baseline Ungrounded Response (hi)]: General advice regarding: जियो मोबाइल का 299 वाला रिचार्ज कैसे करें?,"कृषि वैज्ञानिक स्रोतों से प्राप्त जानकारी:
+
+[1] ICAR Package of Practices for Rajasthan (ICAR-CAZRI Jodhpur / Agriculture University Kota):
+राजस्थान में सरसों और बाजरा की उन्नत किस्मों, संतुलित उर्वरक (NPK) एवं सामयिक सिंचाई प्रबंधन से फसल की उत्पादकता 20-30% तक बढ़ाई जा सकती है। रोग नियंत्रण हेतु केवल अनुशंसित मात्रा में ही जैव या रासायनिक उपचार करें।
+
+[2] KVK Rajasthan Advisory Bulletin (Krishi Vigyan Kendra, Jaipur):
+सरसों में सफेद रोली (White Rust) रोग के लक्षण दिखने पर Mancozeb 75 WP @ 2.5 ग्राम/लीटर पानी में घोलकर छिड़काव करें। दूसरा छिड़काव 15 दिन बाद करें। बीज उपचार Metalaxyl से करें।","[ICAR Package of Practices for Rajasthan | ICAR-CAZRI Jodhpur / Agriculture University Kota]; [KVK Rajasthan Advisory Bulletin | Krishi Vigyan Kendra, Jaipur]",2
+UPSC सिविल सेवा परीक्षा की तैयारी के लिए सबसे अच्छी किताबें कौन सी हैं?,hi,general,general,[Baseline Ungrounded Response (hi)]: General advice regarding: UPSC सिविल सेवा परीक्षा की तैयारी के लिए सबसे अच्छी किताबें कौन सी हैं?,"कृषि वैज्ञानिक स्रोतों से प्राप्त जानकारी:
+
+[1] ICAR Package of Practices for Rajasthan (ICAR-CAZRI Jodhpur / Agriculture University Kota):
+राजस्थान में सरसों और बाजरा की उन्नत किस्मों, संतुलित उर्वरक (NPK) एवं सामयिक सिंचाई प्रबंधन से फसल की उत्पादकता 20-30% तक बढ़ाई जा सकती है। रोग नियंत्रण हेतु केवल अनुशंसित मात्रा में ही जैव या रासायनिक उपचार करें।
+
+[2] KVK Rajasthan Advisory Bulletin (Krishi Vigyan Kendra, Jaipur):
+सरसों में सफेद रोली (White Rust) रोग के लक्षण दिखने पर Mancozeb 75 WP @ 2.5 ग्राम/लीटर पानी में घोलकर छिड़काव करें। दूसरा छिड़काव 15 दिन बाद करें। बीज उपचार Metalaxyl से करें।","[ICAR Package of Practices for Rajasthan | ICAR-CAZRI Jodhpur / Agriculture University Kota]; [KVK Rajasthan Advisory Bulletin | Krishi Vigyan Kendra, Jaipur]",2
+बिटकॉइन और क्रिप्टोकरेंसी की कीमत आज क्या है?,hi,general,price,[Baseline Ungrounded Response (hi)]: General advice regarding: बिटकॉइन और क्रिप्टोकरेंसी की कीमत आज क्या है?,"कृषि वैज्ञानिक स्रोतों से प्राप्त जानकारी:
+
+[1] ICAR Package of Practices for Rajasthan (ICAR-CAZRI Jodhpur / Agriculture University Kota):
+राजस्थान में सरसों और बाजरा की उन्नत किस्मों, संतुलित उर्वरक (NPK) एवं सामयिक सिंचाई प्रबंधन से फसल की उत्पादकता 20-30% तक बढ़ाई जा सकती है। रोग नियंत्रण हेतु केवल अनुशंसित मात्रा में ही जैव या रासायनिक उपचार करें।
+
+[2] KVK Rajasthan Advisory Bulletin (Krishi Vigyan Kendra, Jaipur):
+सरसों में सफेद रोली (White Rust) रोग के लक्षण दिखने पर Mancozeb 75 WP @ 2.5 ग्राम/लीटर पानी में घोलकर छिड़काव करें। दूसरा छिड़काव 15 दिन बाद करें। बीज उपचार Metalaxyl से करें।","[ICAR Package of Practices for Rajasthan | ICAR-CAZRI Jodhpur / Agriculture University Kota]; [KVK Rajasthan Advisory Bulletin | Krishi Vigyan Kendra, Jaipur]",2
+बुकमाईशो से सिनेमा हॉल की टिकट कैसे बुक करें?,hi,general,general,[Baseline Ungrounded Response (hi)]: General advice regarding: बुकमाईशो से सिनेमा हॉल की टिकट कैसे बुक करें?,"कृषि वैज्ञानिक स्रोतों से प्राप्त जानकारी:
+
+[1] ICAR Package of Practices for Rajasthan (ICAR-CAZRI Jodhpur / Agriculture University Kota):
+राजस्थान में सरसों और बाजरा की उन्नत किस्मों, संतुलित उर्वरक (NPK) एवं सामयिक सिंचाई प्रबंधन से फसल की उत्पादकता 20-30% तक बढ़ाई जा सकती है। रोग नियंत्रण हेतु केवल अनुशंसित मात्रा में ही जैव या रासायनिक उपचार करें।
+
+[2] KVK Rajasthan Advisory Bulletin (Krishi Vigyan Kendra, Jaipur):
+सरसों में सफेद रोली (White Rust) रोग के लक्षण दिखने पर Mancozeb 75 WP @ 2.5 ग्राम/लीटर पानी में घोलकर छिड़काव करें। दूसरा छिड़काव 15 दिन बाद करें। बीज उपचार Metalaxyl से करें।","[ICAR Package of Practices for Rajasthan | ICAR-CAZRI Jodhpur / Agriculture University Kota]; [KVK Rajasthan Advisory Bulletin | Krishi Vigyan Kendra, Jaipur]",2

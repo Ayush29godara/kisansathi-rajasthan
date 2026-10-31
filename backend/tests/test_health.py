@@ -10,4 +10,5 @@ def test_health_check_returns_200(client: TestClient):
     data = response.json()
     assert data["status"] == "ok"
     assert "version" in data
+    assert "database" in data
     assert data["environment"] == "test"

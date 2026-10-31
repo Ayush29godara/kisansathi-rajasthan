@@ -1,26 +1,133 @@
 {
-  "disease": {
-    "confidence_threshold": 0.70,
-    "fallback_message_hi": "सटीक पहचान नहीं हो सकी। कृपया निकटतम कृषि विज्ञान केंद्र (KVK) से संपर्क करें।",
-    "fallback_message_en": "Confidence is below threshold. Please contact your nearest Krishi Vigyan Kendra (KVK)."
+  "weather_alerts": {
+    "frost": {
+      "warning_temp_c": 4.0,
+      "critical_temp_c": 2.0,
+      "season": "Rabi",
+      "months": [12, 1, 2],
+      "sensitive_crops": ["Mustard", "Gram", "Wheat", "Potato"],
+      "sensitive_stages": ["Flowering", "Pod formation", "Milking"],
+      "alert_type_hi": "पाला / शीतलहर चेतावनी (Frost Alert)",
+      "message_hi": "आगामी 24-48 घंटों में तापमान 4°C या उससे नीचे जाने की संभावना है। सरसों/चने में पाले से बचाव हेतु शाम को हल्की सिंचाई करें अथवा खेत की मेड़ों पर धुआं करें (0.1% गंधक के तेजाब का छिड़काव भी प्रभावी है)।",
+      "alert_type_en": "Frost / Cold Wave Warning",
+      "message_en": "Night temperatures are projected to drop to 4°C or below. To prevent frost damage in sensitive flowering/pod stages, provide light evening irrigation or create protective field boundary smoke.",
+      "source": "Package of Practices for Rabi Crops, Agriculture University Kota / SKNAU Jobner (Frost Protection Protocol)"
+    },
+    "heat_stress": {
+      "warning_temp_c": 38.0,
+      "critical_temp_c": 42.0,
+      "season": "All",
+      "sensitive_crops": ["Wheat", "Mustard", "Bajra"],
+      "sensitive_stages": ["Milking", "Dough", "Grain filling", "Pod development"],
+      "alert_type_hi": "ताप तनाव / लू चेतावनी (Heat Stress Warning)",
+      "message_hi": "तापमान 38°C से अधिक रहने का अनुमान है। गेहूं में दाना बनते समय पछुआ गर्म हवा से दाना सिकुड़ने का खतरा है। खेत में पर्याप्त नमी बनाए रखने हेतु फव्वारा विधि से हल्की सिंचाई करें।",
+      "alert_type_en": "High Heat Stress Warning",
+      "message_en": "Daily temperatures are exceeding 38°C during grain filling. Maintain adequate soil moisture through light irrigation to mitigate terminal heat shrivelling.",
+      "source": "ICAR-IIWBR Technical Guidelines on Terminal Heat Stress in North-Western Plain Zone"
+    },
+    "cloudy_humid_disease_risk": {
+      "min_humidity_pct": 80.0,
+      "max_temp_c": 25.0,
+      "min_temp_c": 10.0,
+      "consecutive_hours": 24,
+      "sensitive_crops": ["Mustard", "Bajra", "Cumin"],
+      "sensitive_stages": ["Flowering", "Vegetative", "Pod formation"],
+      "alert_type_hi": "बादल व उच्च आर्द्रता रोग जोखिम (High Disease Risk)",
+      "message_hi": "आर्द्रता 80% से अधिक और बादल छाए रहने से सरसों में सफेद रोली (White Rust) व झुलसा रोग (Alternaria Blight) के प्रसार की अनुकूल परिस्थितियां हैं। पत्तियों के निचले भाग का निरीक्षण करें व अत्यधिक जलभराव से बचें।",
+      "alert_type_en": "Cloudy & Humid Disease Risk",
+      "message_en": "Relative humidity above 80% with cloudy conditions creates optimal microclimate for fungal pathogens (Mustard White Rust and Blight). Monitor lower leaf surfaces closely.",
+      "source": "ICAR-DRMR Technical Advisory, Bharatpur & SKNAU Jobner Agro-Met Cell"
+    },
+    "heavy_rainfall": {
+      "precipitation_threshold_mm": 10.0,
+      "alert_type_hi": "वर्षा पूर्वानुमान — सिंचाई स्थगित रखें (Rain Forecast)",
+      "message_hi": "आगामी 48-72 घंटों में 10 मिमी से अधिक वर्षा का अनुमान है। जलभराव व पौधे गिरने (Lodging) से बचाव हेतु वर्तमान में सिंचाई स्थगित रखें।",
+      "alert_type_en": "Rain Forecast — Withhold Irrigation",
+      "message_en": "Precipitation exceeding 10 mm is expected within 48-72 hours. Withhold planned irrigation to prevent soil saturation and root lodging.",
+      "source": "IMD Agro-Meteorological Advisory Services (AAS) Rajasthan State Unit"
+    },
+    "high_wind": {
+      "wind_speed_threshold_kmh": 28.0,
+      "sensitive_crops": ["Wheat", "Bajra"],
+      "sensitive_stages": ["Heading", "Milking", "Flowering"],
+      "alert_type_hi": "तेज हवा चेतावनी — सिंचाई से बचें (High Wind Alert)",
+      "message_hi": "हवा की गति 28 किमी/घंटा से अधिक रहने का अनुमान है। गेहूं की बाली अवस्था में तेज हवा के समय सिंचाई करने से फसल गिरने (Lodging) की आशंका रहती है।",
+      "alert_type_en": "High Wind Warning — Avoid Irrigation",
+      "message_en": "Wind speeds expected above 28 km/h. Avoid irrigation during heading/grain-fill stages to prevent stem lodging.",
+      "source": "State Department of Agriculture, Rajasthan Extension Manual"
+    }
   },
-  "weather": {
-    "heatwave_celsius": 44.0,
-    "coldwave_celsius": 4.0,
-    "heavy_rainfall_mm": 50.0,
-    "high_wind_kmh": 40.0
+  "fao56_crop_coefficients": {
+    "mustard": {
+      "kc_ini": 0.35,
+      "kc_mid": 1.15,
+      "kc_end": 0.35,
+      "stages_days": [20, 35, 45, 25],
+      "total_days": 125,
+      "root_depth_max_m": 1.1,
+      "allowable_depletion_p": 0.45
+    },
+    "wheat": {
+      "kc_ini": 0.40,
+      "kc_mid": 1.15,
+      "kc_end": 0.30,
+      "stages_days": [20, 30, 50, 30],
+      "total_days": 130,
+      "root_depth_max_m": 1.2,
+      "allowable_depletion_p": 0.55
+    },
+    "bajra": {
+      "kc_ini": 0.30,
+      "kc_mid": 1.05,
+      "kc_end": 0.40,
+      "stages_days": [15, 25, 30, 15],
+      "total_days": 85,
+      "root_depth_max_m": 1.0,
+      "allowable_depletion_p": 0.55
+    },
+    "gram": {
+      "kc_ini": 0.40,
+      "kc_mid": 1.00,
+      "kc_end": 0.35,
+      "stages_days": [20, 25, 45, 25],
+      "total_days": 115,
+      "root_depth_max_m": 1.0,
+      "allowable_depletion_p": 0.50
+    },
+    "soybean": {
+      "kc_ini": 0.40,
+      "kc_mid": 1.15,
+      "kc_end": 0.50,
+      "stages_days": [20, 30, 40, 20],
+      "total_days": 110,
+      "root_depth_max_m": 1.0,
+      "allowable_depletion_p": 0.50
+    },
+    "guar": {
+      "kc_ini": 0.30,
+      "kc_mid": 1.00,
+      "kc_end": 0.40,
+      "stages_days": [15, 25, 35, 15],
+      "total_days": 90,
+      "root_depth_max_m": 0.9,
+      "allowable_depletion_p": 0.60
+    },
+    "default": {
+      "kc_ini": 0.35,
+      "kc_mid": 1.10,
+      "kc_end": 0.40,
+      "stages_days": [20, 30, 40, 20],
+      "total_days": 110,
+      "root_depth_max_m": 1.0,
+      "allowable_depletion_p": 0.50
+    }
   },
-  "fao56_irrigation": {
-    "default_soil_mad": 0.50,
-    "efficiency_canal": 0.60,
-    "efficiency_tubewell": 0.75,
-    "efficiency_drip": 0.90,
-    "efficiency_sprinkler": 0.80
-  },
-  "model_versions": {
-    "baseline": "baseline",
-    "yield_active": "baseline",
-    "price_active": "baseline",
-    "disease_active": "baseline"
+  "irrigation_efficiencies": {
+    "canal": 0.60,
+    "tubewell": 0.75,
+    "well": 0.70,
+    "drip": 0.90,
+    "sprinkler": 0.80,
+    "rainfed": 0.55
   }
 }

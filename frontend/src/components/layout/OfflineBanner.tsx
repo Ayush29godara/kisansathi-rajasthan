@@ -1,30 +1,53 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { WifiOff } from 'lucide-react';
+import { useOffline } from '../../context/OfflineContext';
+import { WifiOff, RefreshCw } from 'lucide-react';
 
 export const OfflineBanner: React.FC = () => {
-  const { t } = useTranslation();
-  const [isOffline, setIsOffline] = useState(!navigator.onLine);
+  const { isOnline, pendingQueue, flushQueue } = useOffline();
+  const { i18n } = useTranslation();
+  const isHi = i18n.language === 'hi';
 
-  useEffect(() => {
-    const handleOnline = () => setIsOffline(false);
-    const handleOffline = () => setIsOffline(true);
-
-    window.addEventListener('online', handleOnline);
-    window.addEventListener('offline', handleOffline);
-
-    return () => {
-      window.removeEventListener('online', handleOnline);
-      window.removeEventListener('offline', handleOffline);
-    };
-  }, []);
-
-  if (!isOffline) return null;
+  if (isOnline && pendingQueue.length === 0) {
+    return null;
+  }
 
   return (
-    <div className="bg-amber-600 text-white text-xs md:text-sm font-medium py-1.5 px-4 text-center flex items-center justify-center gap-2 shadow-inner">
-      <WifiOff className="w-4 h-4 flex-shrink-0 animate-pulse" />
-      <span>{t('offline_notice')}</span>
+    <div
+      role="status"
+      aria-live="polite"
+      className="bg-amber-600 text-white px-4 py-2 text-xs md:text-sm font-medium flex items-center justify-between shadow-md"
+    >
+      <div className="flex items-center space-x-2">
+        <WifiOff className="w-4 h-4 flex-shrink-0 animate-pulse" aria-hidden="true" />
+        <span>
+          {!isOnline
+            ? isHi
+              ? 'आप ऑफलाइन हैं। सुरक्षित पुराना डेटा दिखाया जा रहा है।'
+              : 'You are offline. Showing cached agricultural advisory.'
+            : isHi
+            ? 'नेटवर्क वापस आ गया है!'
+            : 'Back online!'}
+          {pendingQueue.length > 0 && (
+            <span className="ml-2 font-bold bg-amber-800 px-2 py-0.5 rounded text-xs">
+              {isHi
+                ? `${pendingQueue.length} संदेश कतार में हैं`
+                : `${pendingQueue.length} message(s) queued`}
+            </span>
+          )}
+        </span>
+      </div>
+
+      {isOnline && pendingQueue.length > 0 && (
+        <button
+          onClick={() => flushQueue()}
+          aria-label={isHi ? 'कतारबद्ध संदेश भेजें' : 'Send queued messages'}
+          className="flex items-center space-x-1 bg-white text-amber-900 px-3 py-1 rounded text-xs font-bold hover:bg-amber-50 active:scale-95 transition focus:outline-none focus:ring-2 focus:ring-white"
+        >
+          <RefreshCw className="w-3.5 h-3.5 animate-spin" aria-hidden="true" />
+          <span>{isHi ? 'अभी भेजें' : 'Sync Now'}</span>
+        </button>
+      )}
     </div>
   );
 };

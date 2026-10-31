@@ -1,0 +1,15 @@
+# Ignore virtual environments, training datasets, and local caches
+backend/venv
+backend/.venv
+backend/tests
+backend/.pytest_cache
+ml_training
+data
+scripts
+docs
+*.ipynb
+.git
+frontend/node_modules
+frontend/dist
+backend/.env
+.env

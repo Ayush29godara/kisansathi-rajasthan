@@ -1,13 +1,26 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Languages } from 'lucide-react';
+import { useAuth } from '../../context/AuthContext';
+import { apiClient } from '../../services/api';
 
 export const LanguageToggle: React.FC = () => {
   const { i18n } = useTranslation();
+  const { user } = useAuth();
 
-  const toggleLanguage = () => {
+  const toggleLanguage = async () => {
     const nextLang = i18n.language === 'hi' ? 'en' : 'hi';
-    i18n.changeLanguage(nextLang);
+    await i18n.changeLanguage(nextLang);
+    localStorage.setItem('i18nextLng', nextLang);
+
+    // Sync preference to Supabase profile if user is authenticated
+    if (user) {
+      try {
+        await apiClient.put('/profile', { language: nextLang });
+      } catch (err) {
+        console.warn('Could not sync language preference to profile:', err);
+      }
+    }
   };
 
   return (

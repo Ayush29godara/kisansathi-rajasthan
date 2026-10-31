@@ -1,0 +1,79 @@
+{
+  "model_name": "MobileNetV3-Small Crop Disease Classifier (Rajasthan 24-Class)",
+  "model_version": "mobilenet-v3-small-v2.1",
+  "val_top1_accuracy": 0.974,
+  "test_top1_accuracy": 0.9721,
+  "test_macro_f1": 0.9297,
+  "classes": [
+    "bajra_blast",
+    "bajra_downy_mildew",
+    "bajra_healthy",
+    "bajra_rust",
+    "mustard_armyworm",
+    "mustard_alternaria_blight",
+    "mustard_healthy",
+    "mustard_leaf_miner",
+    "mustard_white_rust",
+    "tomato_bacterial_spot",
+    "tomato_early_blight",
+    "tomato_healthy",
+    "tomato_late_blight",
+    "tomato_leaf_mold",
+    "tomato_mosaic_virus",
+    "tomato_septoria_leaf_spot",
+    "tomato_spider_mites",
+    "tomato_target_spot",
+    "tomato_yellow_leaf_curl",
+    "wheat_brown_rust",
+    "wheat_healthy",
+    "wheat_loose_smut",
+    "wheat_septoria",
+    "wheat_yellow_rust"
+  ],
+  "class_labels_hi": {
+    "bajra_blast": "बाजरा पत्ती धब्बा / ब्लास्ट (Bajra Blast)",
+    "bajra_downy_mildew": "बाजरा हरित बाली / जोगिया (Downy Mildew)",
+    "bajra_healthy": "बाजरा स्वस्थ पत्ती (Healthy Bajra)",
+    "bajra_rust": "बाजरा रतुआ रोग (Bajra Rust)",
+    "mustard_armyworm": "सरसों सैनिक कीट / सूंडी (Armyworm)",
+    "mustard_alternaria_blight": "सरसों झुलसा रोग (Alternaria Blight)",
+    "mustard_healthy": "सरसों स्वस्थ पत्ती (Healthy Mustard)",
+    "mustard_leaf_miner": "सरसों पत्ती सुरंगक (Leaf Miner)",
+    "mustard_white_rust": "सरसों सफेद रोली (White Rust)",
+    "tomato_bacterial_spot": "टमाटर जीवाणु धब्बा रोग (Bacterial Spot)",
+    "tomato_early_blight": "टमाटर अगेती झुलसा (Early Blight)",
+    "tomato_healthy": "टमाटर स्वस्थ पत्ती (Healthy Tomato)",
+    "tomato_late_blight": "टमाटर पछेती झुलसा (Late Blight)",
+    "tomato_leaf_mold": "टमाटर पत्ती फफूंद (Leaf Mold)",
+    "tomato_mosaic_virus": "टमाटर मोजेक वायरस (Mosaic Virus)",
+    "tomato_septoria_leaf_spot": "टमाटर सेप्टोरिया पत्ती धब्बा (Septoria Leaf Spot)",
+    "tomato_spider_mites": "टमाटर लाल मकड़ी / माइट्स (Spider Mites)",
+    "tomato_target_spot": "टमाटर टारगेट स्पॉट (Target Spot)",
+    "tomato_yellow_leaf_curl": "टमाटर पर्ण कुंचन वायरस / माथा बंधना (Yellow Leaf Curl)",
+    "wheat_brown_rust": "गेहूं भूरा रतुआ (Brown Rust)",
+    "wheat_healthy": "गेहूं स्वस्थ पत्ती (Healthy Wheat)",
+    "wheat_loose_smut": "गेहूं अनावृत कंडवा / कांगियारी (Loose Smut)",
+    "wheat_septoria": "गेहूं सेप्टोरिया पर्ण झुलसा (Septoria Leaf Blotch)",
+    "wheat_yellow_rust": "गेहूं पीला रतुआ (Yellow Rust)"
+  },
+  "input_size": [
+    1,
+    3,
+    224,
+    224
+  ],
+  "normalization": {
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "confidence_threshold": 0.7,
+  "fallback_policy": "Show not sure notice and prompt KVK referral whenever confidence < 0.70"
+}

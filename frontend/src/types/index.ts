@@ -54,6 +54,8 @@ export interface DiseaseDiagnosis {
   prevention_steps: string[];
   sources: SourceCitation[];
   disclaimer: string;
+  image_path?: string;
+  heatmap_url?: string;
 }
 
 export interface YieldDriver {
@@ -97,6 +99,9 @@ export interface MandiPriceForecast {
   forecast_2_weeks: PriceForecastRange;
   forecast_4_weeks: PriceForecastRange;
   model_version: string;
+  recommendation?: 'sell_now' | 'wait' | 'hold';
+  recommendation_text?: string;
+  disclaimer?: string;
   history: MandiPriceRecord[];
   explanation: string;
 }
@@ -105,6 +110,14 @@ export interface WeatherAlertItem {
   alert_type: string;
   severity: 'info' | 'warning' | 'critical';
   message: string;
+  source?: string;
+}
+
+export interface WeatherDaySummary {
+  date: string;
+  temp_max: number;
+  temp_min: number;
+  rain_mm: number;
 }
 
 export interface IrrigationSchedule {
@@ -120,4 +133,57 @@ export interface IrrigationSchedule {
   irrigation_urgency: 'normal' | 'due_soon' | 'immediate' | 'withhold_due_to_rain';
   advisory_text: string;
   alerts: WeatherAlertItem[];
+  weather_summary?: {
+    temp_max: number;
+    temp_min: number;
+    humidity: number;
+    wind_speed: number;
+    precipitation_sum: number;
+    precipitation_72h: number;
+    forecast_days?: WeatherDaySummary[];
+  };
+  methodology?: string;
+}
+
+export interface HistoryItem {
+  id: string;
+  question: string;
+  intent: 'price' | 'yield' | 'weather' | 'disease' | 'general';
+  answer: string;
+  sources: SourceCitation[];
+  model_version: string;
+  created_at: string;
+  feedback_rating?: number | null;
+  actual_outcome?: string | null;
+}
+
+export interface ModuleMetadata {
+  module: string;
+  model_type: string;
+  version: string;
+  accuracy_metric: string;
+  metric_value: string;
+  training_date?: string | null;
+  data_source: string;
+  limitations: string[];
+}
+
+export interface SystemMetadata {
+  project: string;
+  version: string;
+  environment: string;
+  modules: ModuleMetadata[];
+}
+
+export interface FeedbackPayload {
+  message_id?: string;
+  rating: number; // 1 for thumbs up, -1 for thumbs down
+  actual_outcome?: string;
+}
+
+export interface OfflineQueuedMessage {
+  tempId: string;
+  question: string;
+  language: LanguageCode;
+  timestamp: number;
 }

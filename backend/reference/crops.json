@@ -1,14 +1,5 @@
 [
   {
-    "id": "bajra",
-    "name": "Bajra",
-    "hindi_name": "बाजरा (Pearl Millet)",
-    "season": "Kharif",
-    "typical_duration_days": 85,
-    "water_req_mm": 350,
-    "critical_irrigation_stages": ["Tillering", "Flowering", "Grain filling"]
-  },
-  {
     "id": "mustard",
     "name": "Mustard",
     "hindi_name": "सरसों / राया (Mustard)",
@@ -16,6 +7,15 @@
     "typical_duration_days": 125,
     "water_req_mm": 400,
     "critical_irrigation_stages": ["Pre-sowing", "Flowering", "Pod formation"]
+  },
+  {
+    "id": "bajra",
+    "name": "Bajra",
+    "hindi_name": "बाजरा (Pearl Millet)",
+    "season": "Kharif",
+    "typical_duration_days": 85,
+    "water_req_mm": 350,
+    "critical_irrigation_stages": ["Tillering", "Flowering", "Grain filling"]
   },
   {
     "id": "wheat",
@@ -27,13 +27,13 @@
     "critical_irrigation_stages": ["Crown root initiation (CRI)", "Tillering", "Late jointing", "Flowering", "Milking", "Dough"]
   },
   {
-    "id": "moong",
-    "name": "Moong",
-    "hindi_name": "मूंग (Green Gram)",
-    "season": "Kharif",
-    "typical_duration_days": 65,
+    "id": "gram",
+    "name": "Gram",
+    "hindi_name": "चना (Chickpea)",
+    "season": "Rabi",
+    "typical_duration_days": 115,
     "water_req_mm": 300,
-    "critical_irrigation_stages": ["Branching", "Pod initiation"]
+    "critical_irrigation_stages": ["Pre-flowering", "Pod development"]
   },
   {
     "id": "guar",
@@ -45,13 +45,13 @@
     "critical_irrigation_stages": ["Flowering", "Pod formation"]
   },
   {
-    "id": "gram",
-    "name": "Gram",
-    "hindi_name": "चना (Chickpea)",
-    "season": "Rabi",
-    "typical_duration_days": 115,
+    "id": "moong",
+    "name": "Moong",
+    "hindi_name": "मूंग (Green Gram)",
+    "season": "Kharif",
+    "typical_duration_days": 65,
     "water_req_mm": 300,
-    "critical_irrigation_stages": ["Pre-flowering", "Pod development"]
+    "critical_irrigation_stages": ["Branching", "Pod initiation"]
   },
   {
     "id": "soybean",
@@ -88,5 +88,23 @@
     "typical_duration_days": 120,
     "water_req_mm": 200,
     "critical_irrigation_stages": ["Early growth", "Spike emergence"]
+  },
+  {
+    "id": "coriander",
+    "name": "Coriander",
+    "hindi_name": "धनिया (Coriander)",
+    "season": "Rabi",
+    "typical_duration_days": 105,
+    "water_req_mm": 350,
+    "critical_irrigation_stages": ["Vegetative", "Flowering"]
+  },
+  {
+    "id": "barley",
+    "name": "Barley",
+    "hindi_name": "जौ (Barley)",
+    "season": "Rabi",
+    "typical_duration_days": 120,
+    "water_req_mm": 350,
+    "critical_irrigation_stages": ["Tillering", "Heading"]
   }
 ]

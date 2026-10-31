@@ -1,200 +1,48 @@
 [
-  {
-    "district": "Ajmer",
-    "zone": "III-A",
-    "zone_name": "Semi-Arid Eastern Plain",
-    "annual_rainfall_mm": 527
-  },
-  {
-    "district": "Alwar",
-    "zone": "III-B",
-    "zone_name": "Flood Prone Eastern Plain",
-    "annual_rainfall_mm": 638
-  },
-  {
-    "district": "Banswara",
-    "zone": "IV-B",
-    "zone_name": "Sub-Humid Southern Plains and Aravalli Hills",
-    "annual_rainfall_mm": 922
-  },
-  {
-    "district": "Baran",
-    "zone": "V",
-    "zone_name": "Humid South Eastern Plain",
-    "annual_rainfall_mm": 854
-  },
-  {
-    "district": "Barmer",
-    "zone": "II-B",
-    "zone_name": "Transitional Plain of Luni Basin",
-    "annual_rainfall_mm": 277
-  },
-  {
-    "district": "Bharatpur",
-    "zone": "III-B",
-    "zone_name": "Flood Prone Eastern Plain",
-    "annual_rainfall_mm": 664
-  },
-  {
-    "district": "Bhilwara",
-    "zone": "IV-A",
-    "zone_name": "Sub-Humid Southern Plain",
-    "annual_rainfall_mm": 647
-  },
-  {
-    "district": "Bikaner",
-    "zone": "I-C",
-    "zone_name": "Hyper Arid Partially Irrigated Western Plain",
-    "annual_rainfall_mm": 263
-  },
-  {
-    "district": "Bundi",
-    "zone": "V",
-    "zone_name": "Humid South Eastern Plain",
-    "annual_rainfall_mm": 743
-  },
-  {
-    "district": "Chittorgarh",
-    "zone": "IV-B",
-    "zone_name": "Sub-Humid Southern Plains",
-    "annual_rainfall_mm": 765
-  },
-  {
-    "district": "Churu",
-    "zone": "I-C",
-    "zone_name": "Hyper Arid Western Plain",
-    "annual_rainfall_mm": 350
-  },
-  {
-    "district": "Dausa",
-    "zone": "III-A",
-    "zone_name": "Semi-Arid Eastern Plain",
-    "annual_rainfall_mm": 634
-  },
-  {
-    "district": "Dholpur",
-    "zone": "III-B",
-    "zone_name": "Flood Prone Eastern Plain",
-    "annual_rainfall_mm": 670
-  },
-  {
-    "district": "Dungarpur",
-    "zone": "IV-B",
-    "zone_name": "Sub-Humid Southern Plains",
-    "annual_rainfall_mm": 761
-  },
-  {
-    "district": "Hanumangarh",
-    "zone": "I-B",
-    "zone_name": "Irrigated North-Western Plain",
-    "annual_rainfall_mm": 312
-  },
-  {
-    "district": "Jaipur",
-    "zone": "III-A",
-    "zone_name": "Semi-Arid Eastern Plain",
-    "annual_rainfall_mm": 548
-  },
-  {
-    "district": "Jaisalmer",
-    "zone": "I-A",
-    "zone_name": "Arid Western Plain",
-    "annual_rainfall_mm": 164
-  },
-  {
-    "district": "Jalore",
-    "zone": "II-B",
-    "zone_name": "Transitional Plain of Luni Basin",
-    "annual_rainfall_mm": 412
-  },
-  {
-    "district": "Jhalawar",
-    "zone": "V",
-    "zone_name": "Humid South Eastern Plain",
-    "annual_rainfall_mm": 944
-  },
-  {
-    "district": "Jhunjhunu",
-    "zone": "II-A",
-    "zone_name": "Transitional Plain of Inland Drainage",
-    "annual_rainfall_mm": 484
-  },
-  {
-    "district": "Jodhpur",
-    "zone": "I-A",
-    "zone_name": "Arid Western Plain",
-    "annual_rainfall_mm": 363
-  },
-  {
-    "district": "Karauli",
-    "zone": "III-B",
-    "zone_name": "Flood Prone Eastern Plain",
-    "annual_rainfall_mm": 688
-  },
-  {
-    "district": "Kota",
-    "zone": "V",
-    "zone_name": "Humid South Eastern Plain",
-    "annual_rainfall_mm": 786
-  },
-  {
-    "district": "Nagaur",
-    "zone": "II-A",
-    "zone_name": "Transitional Plain of Inland Drainage",
-    "annual_rainfall_mm": 363
-  },
-  {
-    "district": "Pali",
-    "zone": "II-B",
-    "zone_name": "Transitional Plain of Luni Basin",
-    "annual_rainfall_mm": 490
-  },
-  {
-    "district": "Pratapgarh",
-    "zone": "IV-B",
-    "zone_name": "Sub-Humid Southern Plains",
-    "annual_rainfall_mm": 890
-  },
-  {
-    "district": "Rajsamand",
-    "zone": "IV-A",
-    "zone_name": "Sub-Humid Southern Plain",
-    "annual_rainfall_mm": 540
-  },
-  {
-    "district": "Sawai Madhopur",
-    "zone": "III-B",
-    "zone_name": "Flood Prone Eastern Plain",
-    "annual_rainfall_mm": 687
-  },
-  {
-    "district": "Sikar",
-    "zone": "II-A",
-    "zone_name": "Transitional Plain of Inland Drainage",
-    "annual_rainfall_mm": 466
-  },
-  {
-    "district": "Sirohi",
-    "zone": "II-B",
-    "zone_name": "Transitional Plain of Luni Basin",
-    "annual_rainfall_mm": 665
-  },
-  {
-    "district": "Sri Ganganagar",
-    "zone": "I-B",
-    "zone_name": "Irrigated North-Western Plain",
-    "annual_rainfall_mm": 260
-  },
-  {
-    "district": "Tonk",
-    "zone": "III-A",
-    "zone_name": "Semi-Arid Eastern Plain",
-    "annual_rainfall_mm": 613
-  },
-  {
-    "district": "Udaipur",
-    "zone": "IV-A",
-    "zone_name": "Sub-Humid Southern Plain",
-    "annual_rainfall_mm": 637
-  }
+  { "id": "ajmer", "name": "Ajmer", "hindi_name": "अजमेर", "zone": "III-A", "zone_name": "Semi-Arid Eastern Plain", "latitude": 26.4499, "longitude": 74.6399, "elevation_m": 486, "annual_rainfall_mm": 527 },
+  { "id": "alwar", "name": "Alwar", "hindi_name": "अलवर", "zone": "III-B", "zone_name": "Flood Prone Eastern Plain", "latitude": 27.5530, "longitude": 76.6346, "elevation_m": 271, "annual_rainfall_mm": 638 },
+  { "id": "anupgarh", "name": "Anupgarh", "hindi_name": "अनूपगढ़", "zone": "I-B", "zone_name": "Irrigated North-Western Plain", "latitude": 29.1911, "longitude": 73.2086, "elevation_m": 155, "annual_rainfall_mm": 240 },
+  { "id": "balotra", "name": "Balotra", "hindi_name": "बालोतरा", "zone": "II-B", "zone_name": "Transitional Plain of Luni Basin", "latitude": 25.8333, "longitude": 72.2333, "elevation_m": 106, "annual_rainfall_mm": 280 },
+  { "id": "banswara", "name": "Banswara", "hindi_name": "बांसवाड़ा", "zone": "IV-B", "zone_name": "Sub-Humid Southern Plains and Aravalli Hills", "latitude": 23.5461, "longitude": 74.4373, "elevation_m": 302, "annual_rainfall_mm": 922 },
+  { "id": "baran", "name": "Baran", "hindi_name": "बारां", "zone": "V", "zone_name": "Humid South Eastern Plain", "latitude": 25.1011, "longitude": 76.5132, "elevation_m": 262, "annual_rainfall_mm": 854 },
+  { "id": "barmer", "name": "Barmer", "hindi_name": "बाड़मेर", "zone": "II-B", "zone_name": "Transitional Plain of Luni Basin", "latitude": 25.7521, "longitude": 71.3967, "elevation_m": 227, "annual_rainfall_mm": 277 },
+  { "id": "beawar", "name": "Beawar", "hindi_name": "ब्यावर", "zone": "III-A", "zone_name": "Semi-Arid Eastern Plain", "latitude": 26.1011, "longitude": 74.3214, "elevation_m": 439, "annual_rainfall_mm": 510 },
+  { "id": "bharatpur", "name": "Bharatpur", "hindi_name": "भरतपुर", "zone": "III-B", "zone_name": "Flood Prone Eastern Plain", "latitude": 27.2152, "longitude": 77.5030, "elevation_m": 183, "annual_rainfall_mm": 664 },
+  { "id": "bhilwara", "name": "Bhilwara", "hindi_name": "भीलवाड़ा", "zone": "IV-A", "zone_name": "Sub-Humid Southern Plain", "latitude": 25.3407, "longitude": 74.6313, "elevation_m": 421, "annual_rainfall_mm": 647 },
+  { "id": "bikaner", "name": "Bikaner", "hindi_name": "बीकानेर", "zone": "I-C", "zone_name": "Hyper Arid Partially Irrigated Western Plain", "latitude": 28.0229, "longitude": 73.3119, "elevation_m": 242, "annual_rainfall_mm": 263 },
+  { "id": "bundi", "name": "Bundi", "hindi_name": "बूंदी", "zone": "V", "zone_name": "Humid South Eastern Plain", "latitude": 25.4415, "longitude": 75.6457, "elevation_m": 268, "annual_rainfall_mm": 743 },
+  { "id": "chittorgarh", "name": "Chittorgarh", "hindi_name": "चित्तौड़गढ़", "zone": "IV-B", "zone_name": "Sub-Humid Southern Plains", "latitude": 24.8887, "longitude": 74.6269, "elevation_m": 394, "annual_rainfall_mm": 765 },
+  { "id": "churu", "name": "Churu", "hindi_name": "चूरू", "zone": "I-C", "zone_name": "Hyper Arid Western Plain", "latitude": 28.2900, "longitude": 74.9600, "elevation_m": 286, "annual_rainfall_mm": 350 },
+  { "id": "dausa", "name": "Dausa", "hindi_name": "दौसा", "zone": "III-A", "zone_name": "Semi-Arid Eastern Plain", "latitude": 26.8924, "longitude": 76.3370, "elevation_m": 333, "annual_rainfall_mm": 634 },
+  { "id": "deeg", "name": "Deeg", "hindi_name": "डीग", "zone": "III-B", "zone_name": "Flood Prone Eastern Plain", "latitude": 27.4722, "longitude": 77.3250, "elevation_m": 180, "annual_rainfall_mm": 650 },
+  { "id": "didwana_kuchaman", "name": "Didwana-Kuchaman", "hindi_name": "डीडवाना-कुचामन", "zone": "II-A", "zone_name": "Transitional Plain of Inland Drainage", "latitude": 27.4000, "longitude": 74.5700, "elevation_m": 336, "annual_rainfall_mm": 410 },
+  { "id": "dholpur", "name": "Dholpur", "hindi_name": "धौलपुर", "zone": "III-B", "zone_name": "Flood Prone Eastern Plain", "latitude": 26.7025, "longitude": 77.8934, "elevation_m": 177, "annual_rainfall_mm": 670 },
+  { "id": "dungarpur", "name": "Dungarpur", "hindi_name": "डूंगरपुर", "zone": "IV-B", "zone_name": "Sub-Humid Southern Plains", "latitude": 23.8427, "longitude": 73.7147, "elevation_m": 275, "annual_rainfall_mm": 761 },
+  { "id": "hanumangarh", "name": "Hanumangarh", "hindi_name": "हनुमानगढ़", "zone": "I-B", "zone_name": "Irrigated North-Western Plain", "latitude": 29.5816, "longitude": 74.3294, "elevation_m": 177, "annual_rainfall_mm": 312 },
+  { "id": "jaipur", "name": "Jaipur", "hindi_name": "जयपुर (Jaipur)", "zone": "III-A", "zone_name": "Semi-Arid Eastern Plain", "latitude": 26.9124, "longitude": 75.7873, "elevation_m": 431, "annual_rainfall_mm": 548 },
+  { "id": "jaipur_rural", "name": "Jaipur (Rural)", "hindi_name": "जयपुर (ग्रामीण)", "zone": "III-A", "zone_name": "Semi-Arid Eastern Plain", "latitude": 26.9124, "longitude": 75.7873, "elevation_m": 431, "annual_rainfall_mm": 548 },
+  { "id": "jaisalmer", "name": "Jaisalmer", "hindi_name": "जैसलमेर", "zone": "I-A", "zone_name": "Arid Western Plain", "latitude": 26.9157, "longitude": 70.9083, "elevation_m": 225, "annual_rainfall_mm": 164 },
+  { "id": "jalore", "name": "Jalore", "hindi_name": "जालोर", "zone": "II-B", "zone_name": "Transitional Plain of Luni Basin", "latitude": 25.3459, "longitude": 72.6151, "elevation_m": 178, "annual_rainfall_mm": 412 },
+  { "id": "jhalawar", "name": "Jhalawar", "hindi_name": "झालावाड़", "zone": "V", "zone_name": "Humid South Eastern Plain", "latitude": 24.5972, "longitude": 76.1610, "elevation_m": 312, "annual_rainfall_mm": 944 },
+  { "id": "jhunjhunu", "name": "Jhunjhunu", "hindi_name": "झुंझुनू", "zone": "II-A", "zone_name": "Transitional Plain of Inland Drainage", "latitude": 28.1289, "longitude": 75.3995, "elevation_m": 323, "annual_rainfall_mm": 484 },
+  { "id": "jodhpur", "name": "Jodhpur", "hindi_name": "जोधपुर (Jodhpur)", "zone": "I-A", "zone_name": "Arid Western Plain", "latitude": 26.2389, "longitude": 73.0243, "elevation_m": 231, "annual_rainfall_mm": 363 },
+  { "id": "jodhpur_rural", "name": "Jodhpur (Rural)", "hindi_name": "जोधपुर (ग्रामीण)", "zone": "I-A", "zone_name": "Arid Western Plain", "latitude": 26.2389, "longitude": 73.0243, "elevation_m": 231, "annual_rainfall_mm": 363 },
+  { "id": "karauli", "name": "Karauli", "hindi_name": "करौली", "zone": "III-B", "zone_name": "Flood Prone Eastern Plain", "latitude": 26.4950, "longitude": 77.0200, "elevation_m": 260, "annual_rainfall_mm": 688 },
+  { "id": "kekri", "name": "Kekri", "hindi_name": "केकड़ी", "zone": "III-A", "zone_name": "Semi-Arid Eastern Plain", "latitude": 25.9700, "longitude": 75.1500, "elevation_m": 350, "annual_rainfall_mm": 520 },
+  { "id": "khairthal_tijara", "name": "Khairthal-Tijara", "hindi_name": "खैरथल-तिजारा", "zone": "III-B", "zone_name": "Flood Prone Eastern Plain", "latitude": 27.9300, "longitude": 76.8400, "elevation_m": 260, "annual_rainfall_mm": 640 },
+  { "id": "kota", "name": "Kota", "hindi_name": "कोटा", "zone": "V", "zone_name": "Humid South Eastern Plain", "latitude": 25.1800, "longitude": 75.8300, "elevation_m": 271, "annual_rainfall_mm": 786 },
+  { "id": "kotputli_behror", "name": "Kotputli-Behror", "hindi_name": "कोटपूतली-बहरोड़", "zone": "III-A", "zone_name": "Semi-Arid Eastern Plain", "latitude": 27.7000, "longitude": 76.2000, "elevation_m": 310, "annual_rainfall_mm": 580 },
+  { "id": "nagaur", "name": "Nagaur", "hindi_name": "नागौर", "zone": "II-A", "zone_name": "Transitional Plain of Inland Drainage", "latitude": 27.2000, "longitude": 73.7333, "elevation_m": 302, "annual_rainfall_mm": 363 },
+  { "id": "pali", "name": "Pali", "hindi_name": "पाली", "zone": "II-B", "zone_name": "Transitional Plain of Luni Basin", "latitude": 25.7711, "longitude": 73.3234, "elevation_m": 214, "annual_rainfall_mm": 490 },
+  { "id": "phalodi", "name": "Phalodi", "hindi_name": "फलौदी", "zone": "I-A", "zone_name": "Arid Western Plain", "latitude": 27.1300, "longitude": 72.3600, "elevation_m": 233, "annual_rainfall_mm": 210 },
+  { "id": "pratapgarh", "name": "Pratapgarh", "hindi_name": "प्रतापगढ़", "zone": "IV-B", "zone_name": "Sub-Humid Southern Plains", "latitude": 24.0300, "longitude": 74.7800, "elevation_m": 491, "annual_rainfall_mm": 890 },
+  { "id": "rajsamand", "name": "Rajsamand", "hindi_name": "राजसमंद", "zone": "IV-A", "zone_name": "Sub-Humid Southern Plain", "latitude": 25.0700, "longitude": 73.8800, "elevation_m": 547, "annual_rainfall_mm": 540 },
+  { "id": "salumbar", "name": "Salumbar", "hindi_name": "सलूंबर", "zone": "IV-B", "zone_name": "Sub-Humid Southern Plains", "latitude": 24.1300, "longitude": 74.0400, "elevation_m": 320, "annual_rainfall_mm": 720 },
+  { "id": "sanchore", "name": "Sanchore", "hindi_name": "सांचौर", "zone": "II-B", "zone_name": "Transitional Plain of Luni Basin", "latitude": 24.7500, "longitude": 71.7700, "elevation_m": 52, "annual_rainfall_mm": 380 },
+  { "id": "sawai_madhopur", "name": "Sawai Madhopur", "hindi_name": "सवाई माधोपुर", "zone": "III-B", "zone_name": "Flood Prone Eastern Plain", "latitude": 25.9928, "longitude": 76.3686, "elevation_m": 275, "annual_rainfall_mm": 687 },
+  { "id": "sikar", "name": "Sikar", "hindi_name": "सीकर", "zone": "II-A", "zone_name": "Transitional Plain of Inland Drainage", "latitude": 27.6094, "longitude": 75.1398, "elevation_m": 427, "annual_rainfall_mm": 466 },
+  { "id": "sirohi", "name": "Sirohi", "hindi_name": "सिरोही", "zone": "II-B", "zone_name": "Transitional Plain of Luni Basin", "latitude": 24.8826, "longitude": 72.8624, "elevation_m": 321, "annual_rainfall_mm": 665 },
+  { "id": "sriganganagar", "name": "Sri Ganganagar", "hindi_name": "श्रीगंगानगर", "zone": "I-B", "zone_name": "Irrigated North-Western Plain", "latitude": 29.9038, "longitude": 73.8772, "elevation_m": 178, "annual_rainfall_mm": 212 },
+  { "id": "tonk", "name": "Tonk", "hindi_name": "टोंक", "zone": "III-A", "zone_name": "Semi-Arid Eastern Plain", "latitude": 26.1667, "longitude": 75.7833, "elevation_m": 289, "annual_rainfall_mm": 613 },
+  { "id": "udaipur", "name": "Udaipur", "hindi_name": "उदयपुर", "zone": "IV-A", "zone_name": "Sub-Humid Southern Plain", "latitude": 24.5854, "longitude": 73.7125, "elevation_m": 598, "annual_rainfall_mm": 637 }
 ]

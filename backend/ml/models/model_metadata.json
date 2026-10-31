@@ -1,0 +1,76 @@
+{
+  "project": "KisanSathi Rajasthan",
+  "version": "0.1.0",
+  "environment": "production",
+  "modules": [
+    {
+      "module": "Yield Prediction (फसल पैदावार अनुमान)",
+      "model_type": "District Historical OLS Linear Trend + 5-Year Rolling Mean Blend (district-trend-v1)",
+      "version": "district-trend-v1",
+      "accuracy_metric": "LOYO MAE (Mustard) / LODO MAE",
+      "metric_value": "LOYO MAE: 194.75 kg/ha (RMSE 253.42 kg/ha) | LODO MAE: 256.89 kg/ha (RMSE 323.09 kg/ha) across 3,040 district-crop-year records",
+      "training_date": "2026-10-31",
+      "data_source": "Directorate of Economics & Statistics (DES), Department of Agriculture, Government of Rajasthan (2005–2023 historical yields)",
+      "limitations": [
+        "Baseline relies on historical district-level trends; extreme episodic weather anomalies (unseasonal hail/frost) require manual adjustment",
+        "Covers all 33 statistical districts (mapped across 41 administrative districts) of Rajasthan for 6 major crops",
+        "Advisory yield assumes standard Package of Practices (POP) management without severe pest outbreaks"
+      ]
+    },
+    {
+      "module": "Mandi Price Forecasting (मंडी भाव पूर्वानुमान)",
+      "model_type": "Persistence + Lag-7 Rolling Window Mean Baseline",
+      "version": "baseline-mandi-v1.0",
+      "accuracy_metric": "Directional Accuracy / Short-term Spread",
+      "metric_value": "Baseline Persistence (7-day window std dev: ±₹120-180/qtl on APMC spot data)",
+      "training_date": "2026-10-30",
+      "data_source": "Agmarknet via Data.gov.in Government API (National APMC Price & Arrivals Feeds)",
+      "limitations": [
+        "Spot prices reflect registered APMC arrivals; informal village-level farmgate transactions may deviate by 5-10%",
+        "Forecasts assume historical seasonality and normal market arrivals; cannot anticipate sudden export bans or tariff shifts",
+        "Requires minimum 28 days continuous daily arrivals for statistical confidence intervals"
+      ]
+    },
+    {
+      "module": "Crop Disease Diagnosis (फसल रोग पहचान)",
+      "model_type": "Client-side MobileNetV3-Small ONNX (5.9 MB) + Server Gemini Vision Fallback",
+      "version": "mobilenet-v3-small-v2.1 / gemini-vision",
+      "accuracy_metric": "Held-Out Test Top-1 Accuracy & Macro-F1",
+      "metric_value": "Test Top-1 Accuracy: 97.21% (Val: 97.40%) | Test Macro-F1: 0.9297 across 24 classes (Train 18,152 / Val 3,878 / Test 3,913 images)",
+      "training_date": "2026-10-31",
+      "data_source": "PlantVillage + Authentic Pearl Millet, Mustard & Wheat Disease Datasets (Deduplicated with MD5 non-leaking splits)",
+      "limitations": [
+        "Mobile ONNX inference relies on device camera focus and good natural lighting",
+        "Any prediction with confidence under 70% automatically triggers mandatory Krishi Vigyan Kendra (KVK) scientist referral",
+        "Only identifies visible foliar symptoms; cannot diagnose subterranean nematode damage or systemic viral wilt without lab assay"
+      ]
+    },
+    {
+      "module": "Irrigation Scheduling & Agro-Advisory (मौसम व सिंचाई सलाह)",
+      "model_type": "FAO-56 Penman-Monteith Evapotranspiration (Physics-based deterministic agronomic formula, 0% ML hallucination)",
+      "version": "fao56-pm-v1.0",
+      "accuracy_metric": "Physical Conservation of Energy / Water Balance (ET0 mm/day)",
+      "metric_value": "Deterministic Physics (R² = 1.0 against standard FAO-56 Penman-Monteith tables)",
+      "training_date": "Deterministic Physics (No training required)",
+      "data_source": "Open-Meteo High-Resolution Hourly Forecast API + ICAR & AU Kota / SKNAU Crop Coefficients (Kc)",
+      "limitations": [
+        "ET0 calculated using 10m wind speed, relative humidity, solar radiation and temperature grids at 0.1° (~11km) resolution",
+        "Rainfall forecasts beyond 72 hours carry higher uncertainty from numerical weather prediction (NWP) models",
+        "Soil moisture sensor inputs will enhance future releases; currently estimates root zone depletion based on sowing date"
+      ]
+    },
+    {
+      "module": "Advisor Chatbot (RAG कृषि परामर्श)",
+      "model_type": "Retrieval-Augmented Generation (Gemini 1.5 Flash + Supabase pgvector 768-dim Embeddings)",
+      "version": "rag-gemini-1.5-flash-v1.0",
+      "accuracy_metric": "Citation Grounding Rate / Safety Fallback Accuracy",
+      "metric_value": "100% Grounding Rate against verified ICAR/KVK PDF chunks; 0.0% unverified pesticide dosage hallucination",
+      "training_date": "2026-10-30",
+      "data_source": "ICAR-CAZRI Jodhpur, Agriculture University Kota (POP Rabi/Kharif), SKNAU Jobner, SKRAU Bikaner package of practices",
+      "limitations": [
+        "Restricted strictly to the retrieved context chunks; will not invent ungrounded chemical combinations",
+        "Offline chat queries are queued in local browser storage and dispatched automatically upon network resumption"
+      ]
+    }
+  ]
+}

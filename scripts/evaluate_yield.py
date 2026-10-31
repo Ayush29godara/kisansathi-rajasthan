@@ -11,16 +11,22 @@ import os
 import sys
 import argparse
 import csv
+import math
 from typing import List, Dict, Any
-import numpy as np
+
+try:
+    import numpy as np
+except ImportError:
+    np = None
 
 
 def compute_metrics(y_true: List[float], y_pred: List[float]) -> Dict[str, float]:
     """Compute Root Mean Squared Error (RMSE) and Mean Absolute Error (MAE)."""
-    y_t = np.array(y_true)
-    y_p = np.array(y_pred)
-    mae = float(np.mean(np.abs(y_t - y_p)))
-    rmse = float(np.sqrt(np.mean((y_t - y_p) ** 2)))
+    if not y_true:
+        return {"mae": 0.0, "rmse": 0.0}
+    n = len(y_true)
+    mae = sum(abs(t - p) for t, p in zip(y_true, y_pred)) / n
+    rmse = math.sqrt(sum((t - p) ** 2 for t, p in zip(y_true, y_pred)) / n)
     return {"mae": round(mae, 2), "rmse": round(rmse, 2)}
 
 
@@ -40,11 +46,12 @@ def run_loyo_evaluation(records: List[Dict[str, Any]]) -> Dict[str, Any]:
         for r in train:
             district_means.setdefault(r["district"], []).append(float(r["yield_kg_ha"]))
 
-        overall_mean = float(np.mean([float(r["yield_kg_ha"]) for r in train]))
+        overall_mean = sum(float(r["yield_kg_ha"]) for r in train) / len(train)
 
         for r in test:
             y_actual = float(r["yield_kg_ha"])
-            d_mean = np.mean(district_means.get(r["district"], [overall_mean]))
+            d_vals = district_means.get(r["district"])
+            d_mean = (sum(d_vals) / len(d_vals)) if d_vals else overall_mean
             baseline_true.append(y_actual)
             baseline_pred.append(float(d_mean))
 
@@ -62,7 +69,7 @@ def run_lodo_evaluation(records: List[Dict[str, Any]]) -> Dict[str, Any]:
         train = [r for r in records if r["district"] != test_district]
         test = [r for r in records if r["district"] == test_district]
 
-        state_mean = float(np.mean([float(r["yield_kg_ha"]) for r in train]))
+        state_mean = sum(float(r["yield_kg_ha"]) for r in train) / len(train)
 
         for r in test:
             baseline_true.append(float(r["yield_kg_ha"]))

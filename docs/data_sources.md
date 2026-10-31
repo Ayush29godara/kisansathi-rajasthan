@@ -45,5 +45,22 @@ In an academic and university project, scientific integrity is paramount:
 - **Embeddings**: 768-dimensional vectors generated via Gemini Embedding API (`models/text-embedding-004`).
 
 ### D. Weather & Agro-meteorological Data
-- **Source**: Open-Meteo Historical & Forecast Weather API / Indian Meteorological Department (IMD) Agromet Advisories.
-- **Physics Equations**: FAO-56 Penman-Monteith equation for reference evapotranspiration ($ET_0$) combined with stage-specific crop coefficients ($K_c$).
+- **Live Provider**: Open-Meteo Weather API (`https://api.open-meteo.com/v1/forecast`), an open-access meteorological service operating with standard WMO physical models (ERA5 / GFS). Zero proprietary API key required.
+- **District Reference**: `backend/reference/districts.json` specifying exact centroid coordinates (latitude, longitude) and elevation above sea level (meters) across all 43 administrative districts of Rajasthan (covering newly formed districts such as Balotra, Anupgarh, Kotputli-Behror, Phalodi, Salumbar, and Kekri mapped from parent jurisdictions).
+- **Offline / Sandboxed Fallback**: Built-in monthly climatological normals for Rajasthan agro-climatic zones, ensuring 100% test reliability and resilience during network outages.
+- **Physics Equations**: Standard FAO-56 Penman-Monteith reference evapotranspiration ($ET_0$) combined with stage-specific crop coefficients ($K_c$).
+
+---
+
+## 2. Agronomic Rules & Thresholds (No ML)
+
+> [!NOTE]
+> **Agronomic Rule Grounding**: Crop alert rules and irrigation decisions are strictly deterministic agronomic rules, not statistical or deep learning predictions. Each rule in `backend/reference/thresholds.json` includes an explicit `source` field referencing State Agricultural University advisories:
+
+| Alert Category | Condition Threshold | Agronomic Action | University Source |
+| :--- | :--- | :--- | :--- |
+| **Frost / Cold Wave** | $T_{\min} \le 4.0^\circ\text{C}$ (Critical $\le 2.0^\circ\text{C}$) | Evening light irrigation, smoke generation on northern bunds, or 0.1% dilute sulfuric acid ($H_2SO_4$) spray | *Package of Practices, Agriculture University Kota* |
+| **Terminal Heat Stress** | $T_{\max} \ge 38.0^\circ\text{C}$ (Critical $\ge 42.0^\circ\text{C}$) during flowering/grain-fill | Light sprinkler irrigation to lower canopy temperature; spray 0.2% potassium nitrate ($KNO_3$) | *ICAR-IIWBR Technical Guidelines on Terminal Heat Stress in Wheat* |
+| **Cloudy/Humid Disease Outbreak** | $RH \ge 80\%$ and $10^\circ\text{C} \le T_{\min} \le 26^\circ\text{C}$ in mustard | Regular inspection for white rust / downy mildew; avoid unnecessary flood irrigation | *Directorate of Rapeseed-Mustard Research (DRMR) & SKNAU Jobner* |
+| **Heavy Rainfall Withholding** | 72-hour precipitation forecast $\ge 20\text{ mm}$ | Postpone planned irrigation to prevent root hypoxia, waterlogging, and nutrient leaching | *State Department of Agriculture, Rajasthan Water Management Guidelines* |
+| **High Wind Lodging** | Wind speed $\ge 28\text{ km/h}$ during heading / grain filling | Delay irrigation to avoid severe stem lodging | *State Department of Agriculture, Rajasthan Extension Manual* |

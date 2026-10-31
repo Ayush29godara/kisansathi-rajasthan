@@ -14,6 +14,7 @@ class HealthResponse(BaseModel):
     status: str = "ok"
     version: str = "0.1.0"
     environment: str = "development"
+    database: str = "connected"
     timestamp: datetime = Field(default_factory=datetime.utcnow)
 
 
@@ -28,27 +29,6 @@ class SourceCitation(BaseModel):
 # -----------------------------------------------------------------------------
 # User & Farm Profile Schemas
 # -----------------------------------------------------------------------------
-
-class ProfileBase(BaseModel):
-    """User profile base schema."""
-    language: Literal["hi", "en"] = "hi"
-
-
-class ProfileCreate(ProfileBase):
-    pass
-
-
-class ProfileUpdate(BaseModel):
-    language: Optional[Literal["hi", "en"]] = None
-
-
-class ProfileResponse(ProfileBase):
-    user_id: str
-    created_at: Optional[datetime] = None
-    updated_at: Optional[datetime] = None
-
-    model_config = {"from_attributes": True}
-
 
 class FarmBase(BaseModel):
     """Farm profile capturing local agro-parameters."""
@@ -78,6 +58,29 @@ class FarmUpdate(BaseModel):
 class FarmResponse(FarmBase):
     farm_id: str
     user_id: str
+    created_at: Optional[datetime] = None
+    updated_at: Optional[datetime] = None
+
+    model_config = {"from_attributes": True}
+
+
+class ProfileBase(BaseModel):
+    """User profile base schema."""
+    language: Literal["hi", "en"] = "hi"
+
+
+class ProfileCreate(ProfileBase):
+    pass
+
+
+class ProfileUpdate(BaseModel):
+    language: Optional[Literal["hi", "en"]] = None
+    farm: Optional[FarmUpdate] = None
+
+
+class ProfileResponse(ProfileBase):
+    user_id: str
+    farm: Optional[FarmResponse] = None
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
 
@@ -121,6 +124,8 @@ class DiseaseDiagnosisResponse(BaseModel):
     prevention_steps: List[str] = Field(default_factory=list)
     sources: List[SourceCitation] = Field(default_factory=list)
     disclaimer: str = "सलाह केवल मार्गदर्शन हेतु है। गंभीर संक्रमण में तुरंत KVK विशेषज्ञ से परामर्श लें।"
+    image_path: Optional[str] = None
+    heatmap_url: Optional[str] = None
 
 
 class DiseaseRecordCreate(BaseModel):
@@ -128,7 +133,7 @@ class DiseaseRecordCreate(BaseModel):
     crop: str
     predicted_label: str
     confidence: float
-    model_version: str
+    model_version: str = "onnx-mobilenet-v3"
     image_path: Optional[str] = None
 
 
@@ -184,6 +189,15 @@ class MandiPriceForecastResponse(BaseModel):
     forecast_2_weeks: PriceForecastRange
     forecast_4_weeks: PriceForecastRange
     model_version: str
+    recommendation: Literal["sell_now", "wait", "hold"] = "hold"
+    recommendation_text: str = Field(
+        default="",
+        description="Actionable decision hint (e.g. Wait / Sell now) based on trend and price projections"
+    )
+    disclaimer: str = Field(
+        default="यह भाव पूर्वानुमान और सलाह केवल मार्गदर्शन हेतु है। वास्तविक बाजार भाव स्थानीय मांग, गुणवत्ता और सरकारी नीतियों पर निर्भर करते हैं।",
+        description="Clear guidance disclaimer reminding farmers of market risk"
+    )
     history: List[MandiPriceRecord] = Field(default_factory=list)
     explanation: str
 
@@ -196,6 +210,10 @@ class WeatherAlertItem(BaseModel):
     alert_type: str
     severity: Literal["info", "warning", "critical"]
     message: str
+    source: Optional[str] = Field(
+        default="Package of Practices, Agriculture University Kota / SKNAU Jobner / ICAR-CAZRI",
+        description="University advisory reference source for this agronomic rule"
+    )
 
 
 class IrrigationScheduleResponse(BaseModel):
@@ -212,6 +230,8 @@ class IrrigationScheduleResponse(BaseModel):
     irrigation_urgency: Literal["normal", "due_soon", "immediate", "withhold_due_to_rain"]
     advisory_text: str
     alerts: List[WeatherAlertItem] = Field(default_factory=list)
+    weather_summary: Optional[Dict[str, Any]] = None
+    methodology: str = "FAO-56 Penman-Monteith (Physics-based deterministic model, zero ML)"
 
 
 # -----------------------------------------------------------------------------
@@ -227,3 +247,37 @@ class FeedbackCreate(BaseModel):
 class FeedbackResponse(BaseModel):
     id: str
     status: str = "recorded"
+
+
+# -----------------------------------------------------------------------------
+# History & Metadata Schemas (Phase 7)
+# -----------------------------------------------------------------------------
+
+class HistoryItemResponse(BaseModel):
+    id: str
+    question: str
+    intent: str
+    answer: str
+    sources: List[Dict[str, Any]] = []
+    model_version: str
+    created_at: datetime
+    feedback_rating: Optional[int] = None
+    actual_outcome: Optional[str] = None
+
+
+class ModuleMetadata(BaseModel):
+    module: str
+    model_type: str
+    version: str
+    accuracy_metric: str
+    metric_value: str
+    training_date: Optional[str] = None
+    data_source: str
+    limitations: List[str]
+
+
+class SystemMetadataResponse(BaseModel):
+    project: str
+    version: str
+    environment: str
+    modules: List[ModuleMetadata]

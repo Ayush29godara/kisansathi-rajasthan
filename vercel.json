@@ -1,0 +1,45 @@
+{
+  "buildCommand": "cd frontend && npm install && npm run build",
+  "outputDirectory": "frontend/dist",
+  "headers": [
+    {
+      "source": "/sw.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/index.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(health|docs|redoc|openapi\\.json)",
+      "destination": "/api/index.py"
+    },
+    {
+      "source": "/(chat|chat/.*|diagnose|advice/.*|predict/.*|forecast/.*|schedule/.*|profile|farms|history|feedback|system/.*|reference/.*)",
+      "missing": [
+        {
+          "type": "header",
+          "key": "accept",
+          "value": ".*text/html.*"
+        }
+      ],
+      "destination": "/api/index.py"
+    },
+    {
+      "source": "/((?!assets/|ort/|models/|sw\\.js|manifest\\.json).*)",
+      "destination": "/index.html"
+    }
+  ]
+}

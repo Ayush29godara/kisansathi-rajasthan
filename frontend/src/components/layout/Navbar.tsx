@@ -1,12 +1,28 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Sprout, Menu, X, MessageSquare, Stethoscope, TrendingUp, IndianRupee, CloudSun, History, Info } from 'lucide-react';
+import {
+  Sprout,
+  Menu,
+  X,
+  MessageSquare,
+  Stethoscope,
+  TrendingUp,
+  IndianRupee,
+  CloudSun,
+  History,
+  Info,
+  LogOut,
+  User as UserIcon,
+} from 'lucide-react';
 import { LanguageToggle } from './LanguageToggle';
+import { useAuth } from '../../context/AuthContext';
 
 export const Navbar: React.FC = () => {
   const { t } = useTranslation();
   const location = useLocation();
+  const navigate = useNavigate();
+  const { user, signOut } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
@@ -19,6 +35,11 @@ export const Navbar: React.FC = () => {
     { path: '/history', label: t('nav.history'), icon: History },
     { path: '/about', label: t('nav.about'), icon: Info },
   ];
+
+  const handleLogout = async () => {
+    await signOut();
+    navigate('/login');
+  };
 
   return (
     <header className="bg-brand-800 text-white sticky top-0 z-50 shadow-md">
@@ -57,15 +78,33 @@ export const Navbar: React.FC = () => {
             })}
           </nav>
 
-          {/* Controls */}
+          {/* Controls: Language & Auth */}
           <div className="flex items-center gap-2">
             <LanguageToggle />
-            <Link
-              to="/login"
-              className="hidden sm:inline-flex px-3 py-1.5 text-xs font-semibold bg-white text-brand-900 rounded-full hover:bg-brand-50 transition-colors"
-            >
-              {t('nav.login')}
-            </Link>
+
+            {user ? (
+              <div className="hidden sm:flex items-center gap-2">
+                <span className="text-xs text-brand-100 flex items-center gap-1 bg-brand-900/60 px-2.5 py-1 rounded-full border border-brand-700">
+                  <UserIcon className="w-3.5 h-3.5 text-rajasthan-sand" />
+                  <span className="max-w-[120px] truncate">{user.email?.split('@')[0]}</span>
+                </span>
+                <button
+                  onClick={handleLogout}
+                  className="px-2.5 py-1 text-xs font-semibold bg-red-800/80 hover:bg-red-700 text-white rounded-full transition-colors flex items-center gap-1"
+                  title="लॉग आउट करें"
+                >
+                  <LogOut className="w-3 h-3" />
+                  <span>{t('nav.logout')}</span>
+                </button>
+              </div>
+            ) : (
+              <Link
+                to="/login"
+                className="hidden sm:inline-flex px-3 py-1.5 text-xs font-semibold bg-white text-brand-900 rounded-full hover:bg-brand-50 transition-colors"
+              >
+                {t('nav.login')}
+              </Link>
+            )}
 
             {/* Mobile menu button */}
             <button
@@ -100,13 +139,28 @@ export const Navbar: React.FC = () => {
             );
           })}
           <div className="pt-2 border-t border-brand-800">
-            <Link
-              to="/login"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block w-full text-center py-2 px-4 rounded-md font-medium text-sm bg-brand-600 text-white"
-            >
-              {t('nav.login')}
-            </Link>
+            {user ? (
+              <div className="flex items-center justify-between pt-1">
+                <span className="text-xs text-brand-200 truncate">{user.email}</span>
+                <button
+                  onClick={() => {
+                    handleLogout();
+                    setMobileMenuOpen(false);
+                  }}
+                  className="px-3 py-1.5 text-xs font-semibold bg-red-800 text-white rounded-md"
+                >
+                  {t('nav.logout')}
+                </button>
+              </div>
+            ) : (
+              <Link
+                to="/login"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block w-full text-center py-2 px-4 rounded-md font-medium text-sm bg-brand-600 text-white"
+              >
+                {t('nav.login')}
+              </Link>
+            )}
           </div>
         </div>
       )}

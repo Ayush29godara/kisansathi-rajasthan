@@ -1,133 +1,144 @@
 # KisanSathi Rajasthan (किसान साथी राजस्थान)
-**AI-Assisted Decision-Support System for Smallholder Farmers in Rajasthan, India**
-*Academic Final-Year Capstone Project*
+**AI-Assisted Decision-Support System for Smallholder Farmers in Rajasthan, India**  
+*Academic Final-Year Capstone Project — Scientific Rigor, Grounded RAG, In-Browser Edge ML & Complete Transparency*
 
-[![CI Pipeline](https://github.com/ayush/kisansathi-rajasthan/actions/workflows/ci.yml/badge.svg)](https://github.com/ayush/kisansathi-rajasthan/actions/workflows/ci.yml)
 [![FastAPI](https://img.shields.io/badge/Backend-FastAPI_0.115-009688.svg?logo=fastapi)](https://fastapi.tiangolo.com)
 [![React](https://img.shields.io/badge/Frontend-React_18_%2B_Vite_6-61DAFB.svg?logo=react)](https://react.dev)
-[![Supabase](https://img.shields.io/badge/Database-Supabase_Postgres_%2B_pgvector-3ECF8E.svg?logo=supabase)](https://supabase.com)
+[![Supabase](https://img.shields.io/badge/Database-Supabase_Postgres_%2B_pgvector_768-3ECF8E.svg?logo=supabase)](https://supabase.com)
 [![Render Target](https://img.shields.io/badge/Deploy-Render_Free_Tier_(512MB)-46E3B7.svg?logo=render)](https://render.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ---
 
 ## 🌾 1. Product Overview
-Smallholder farmers in Rajasthan face extreme climate variability, localized pest attacks, water scarcity, and fluctuating market prices. **KisanSathi Rajasthan** provides actionable, grounded, and bilingual (Hindi default, English supported) decision support without black-box hallucinations.
 
-### Core Features (in priority order)
-1. **Farm Profile**: Captures district, tehsil, primary crop, land size (hectares/bigha), irrigation source, and sowing date to personalize all insights.
-2. **Advisor Chat**: Grounded text and voice conversational assistant utilizing RAG over verified Rajasthan agricultural manuals (ICAR-CAZRI, SKNAU, AU Kota). Every answer transparently cites its sources.
-3. **Crop Disease Detection**: Real-time leaf diagnosis executed **inside the farmer's browser** via ONNX Runtime Web. Confidence $< 70\%$ falls back safely to "Not sure, contact your nearest KVK".
-4. **District Yield Outlook**: Forecasts district crop yields ($kg/ha$) with SHAP feature driver explanations, backed by verified historical baselines.
-5. **Mandi Price Trend & Forecast**: APMC mandi price history and 2-4 week forecast ranges across Rajasthan trading hubs.
-6. **Weather & Irrigation Advisory**: Regional agro-weather alerts paired with a 100% deterministic **FAO-56 Penman-Monteith Evapotranspiration ($ET_0$)** irrigation scheduler.
+Smallholder farmers across Rajasthan face extreme climatic variability (arid and semi-arid agro-climatic zones), unpredictable rainfall, localized pest infestations, groundwater depletion, and sharp price swings at local APMC mandis. 
 
-*Explicitly Out of Scope*: Satellite imagery, SMS/IVR gateways, payment gateways, native mobile apps.
+**KisanSathi Rajasthan** is a production-grade, bilingual (Hindi default, English supported) decision-support progressive web application (PWA). It empowers farmers with personalized, risk-free agronomic advice grounded strictly in official university Package of Practices (POP) from **ICAR-CAZRI Jodhpur, Agriculture University Kota, SKNAU Jobner, and SKRAU Bikaner**.
+
+### Core Modules
+1. **Personalized Farm Profile**: Captures farmer's district (across all 33 administrative Rajasthan districts), tehsil, primary crop, landholding (with automatic Bigha-to-Hectare conversion), irrigation source, and sowing date.
+2. **Advisor Chat (Grounded RAG)**: Text and voice query answering backed by pgvector cosine search and Gemini 1.5 Flash grounded strictly in verified Rajasthan agriculture university bulletins. Zero dosage hallucinations.
+3. **Crop Disease Diagnosis**: Real-time foliar lesion identification executed directly **in the browser via ONNX Runtime Web** (MobileNetV3). When confidence falls below 70%, the system safely redirects to the nearest Krishi Vigyan Kendra (KVK). Server-side vision fallback available.
+4. **District Yield Outlook**: Historical district production forecasts ($kg/ha$) benchmarked against 5-year rolling district baselines with Leave-One-Year-Out (LOYO) and Leave-One-District-Out (LODO) validation.
+5. **Mandi Price Forecasts**: Real-time APMC arrivals and prices from Agmarknet (Data.gov.in API) with persistence baseline trends and short-term forecast intervals.
+6. **Weather & Irrigation Scheduling**: Deterministic physics engine computing reference crop evapotranspiration ($ET_0$) using the **FAO-56 Penman-Monteith method** paired with high-resolution hourly Open-Meteo forecasts and university crop growth stage coefficients ($K_c$).
+7. **PWA Offline Resilience & Feedback**: Offline storage for profile, prices, weather schedules, and disease advice; offline chat queuing in `localStorage` with automatic reconnection flush; thumbs up/down and actual outcome tracking (`public.feedback`).
+
+*Explicitly Out of Scope*: Satellite remote sensing imagery, commercial payment gateways, SMS/IVR telephony modems, proprietary paid APIs.
 
 ---
 
-## 🏛️ 2. System Architecture & Free-Tier Constraints
+## 🏛️ 2. System Architecture
 
+```mermaid
+flowchart TD
+    subgraph Client ["Client: Progressive Web App (React 18 + Vite 6)"]
+        UI["Mobile-First UI (Tailwind CSS + i18next)"]
+        ONNX["In-Browser ONNX Runtime Web (MobileNetV3)"]
+        OfflineQueue["Offline Queue (localStorage) + Service Worker"]
+    end
+
+    subgraph CloudHosting ["Deployment: Render Free Tier (512 MB RAM)"]
+        FastAPI["FastAPI 0.115 Application (Python 3.11-slim)"]
+        Logging["Structured Request Logging Middleware (X-Request-ID, latency_ms)"]
+        Limiter["In-Memory Sliding Window Rate Limiter (Chat & Vision)"]
+        Router["Rule-Based Intent Classifier (Zero LLM Overhead)"]
+        Physics["FAO-56 Penman-Monteith ET0 Engine (Physics, 0% ML)"]
+    end
+
+    subgraph DataLayer ["Database & Auth: Supabase Cloud"]
+        Auth["Supabase Auth (JWT Bearer Verification)"]
+        PG["PostgreSQL Database with Row Level Security (RLS)"]
+        Vector["pgvector (768-dim embeddings cosine index)"]
+        Storage["Private Storage Bucket (Opt-in Leaf Photos only)"]
+    end
+
+    subgraph ExternalAPIs ["External Data Providers"]
+        Gemini["Google Gemini (Grounded RAG Synthesis & Vision Fallback)"]
+        Agmarknet["Agmarknet via Data.gov.in (Live APMC Mandi Feeds)"]
+        OpenMeteo["Open-Meteo High-Resolution Hourly Weather API"]
+    end
+
+    UI -->|HTTPS + JWT| Logging
+    Logging --> Limiter
+    Limiter --> Router
+    Router --> FastAPI
+    
+    FastAPI -->|JWT Verification| Auth
+    FastAPI -->|Query Context & Chunks| Vector
+    FastAPI -->|Persist Profile, History, Feedback| PG
+    FastAPI -->|Strict RAG Grounded Prompt| Gemini
+    FastAPI -->|Live Price Trends| Agmarknet
+    FastAPI -->|Hourly Forecast Grid| OpenMeteo
+    Physics --> FastAPI
+    
+    ONNX -->|Local Edge Inference| UI
+    OfflineQueue -.->|Auto-Flush on Reconnection| FastAPI
 ```
-┌────────────────────────────────────────────────────────────────────────┐
-│                     CLIENT: Mobile-First React PWA                     │
-│  - Vite + React + TypeScript + Tailwind CSS                            │
-│  - react-i18next (Hindi default, English supported)                    │
-│  - ONNX Runtime Web (In-browser disease classification)                │
-│  - Service Worker (Offline caching of profile, advice, and prices)    │
-└────────────────────────────────────┬───────────────────────────────────┘
-                                     │ HTTPS + Supabase JWT
-                                     ▼
-┌────────────────────────────────────────────────────────────────────────┐
-│             BACKEND: FastAPI on Render Free Tier (512 MB RAM)          │
-│  - Python 3.11-slim Docker Container (Single uvicorn worker)          │
-│  - Strict CORS: Configured origin only (Never "*")                     │
-│  - Rule-Based Intent Classifier (Zero LLM overhead)                    │
-│  - FAO-56 ET0 Irrigation Engine (Deterministic physics)                │
-│  - Zero PyTorch/Transformers on server (Protects 512MB RAM budget)     │
-│  - Ephemeral Disk: In-memory image processing, EXIF stripping          │
-└──────────────────┬─────────────────────────────────┬───────────────────┘
-                   │                                 │
-                   ▼                                 ▼
-┌──────────────────────────────────────┐  ┌──────────────────────────────┐
-│       Supabase Cloud Services        │  │     Google Gemini 1.5 Flash  │
-│  - Postgres with pgvector extension  │  │  - Used SOLELY for grounded  │
-│  - Supabase Auth (Email / Google)    │  │    language synthesis and    │
-│  - Row Level Security (RLS) on all   │  │    explanation from context. │
-│    tables (auth.uid() = user_id)     │  │  - NEVER invents doses or    │
-│  - Supabase Storage (Opt-in only)    │  │    chemical numbers.         │
-└──────────────────────────────────────┘  └──────────────────────────────┘
-```
+
+### Free-Tier Architectural Hardening (Render 512MB RAM Budget)
+1. **Zero PyTorch on Server**: Server runs pure Python math, lightweight FastAPI, and standard libraries. Neural network vision inference is offloaded entirely to the client device via WebAssembly/WebGPU (`ort-wasm-simd-threaded.wasm`).
+2. **Deterministic Physics over Large Models**: Irrigation uses the standard FAO-56 Penman-Monteith energy balance equation rather than memory-heavy regression models.
+3. **Sliding-Window Rate Limiting**: Chat and vision endpoints are shielded by `SlidingWindowRateLimiter` (20 req/min for chat, 10 req/min for diagnosis) to prevent container CPU throttling.
+4. **Structured JSON Logging**: Every request emits structured metrics (`request_id`, `client_ip`, `latency_ms`, `status_code`) with header injection (`X-Request-ID`).
 
 ---
 
-## 📋 3. Whole-Project Roadmap & Phases
+## 📋 3. Completed Roadmap
 
-- [x] **Phase 0: Scaffold, Architecture & Environment Setup** *(Completed)*
-  - Monorepo directory layout, Dockerfile, render.yaml, CI workflow, .env templates.
-  - Pydantic contracts, SQLAlchemy connection layer, Supabase JWT verification.
-  - Full SQL migration with tables, pgvector index, and Row Level Security (RLS) policies.
-  - Reference data for Rajasthan districts, crops, mandis, and thresholds.
-  - Colab training notebooks and evaluation scripts (`evaluate_*.py`).
-  - Mobile-first React + Vite frontend scaffold with i18n and PWA service worker.
-- [ ] **Phase 1: Database, Supabase Auth & Farm Profile Management**
-  - Live Supabase connection, schema deployment, Auth flows (Email & Google).
-  - Farm profile onboarding with Bigha-to-Hectare converter and personal context caching.
-- [ ] **Phase 2: RAG Knowledge Base & Gemini Advisor Chat**
-  - Document chunking and 768-dim vector embeddings via Gemini Embedding API in `kb_chunks`.
-  - Intent router and pgvector cosine search.
-  - Strict grounding prompt: zero hallucinated dosages, automatic KVK fallback.
-  - Voice recording and transcription integration.
-- [ ] **Phase 3: In-Browser Crop Disease Diagnosis**
-  - Browser-side ONNX Runtime Web model loader and image preprocessor.
-  - Client canvas rendering, EXIF stripping, $< 70\%$ confidence threshold fallback.
-  - Optional user opt-in photo storage in Supabase.
-- [ ] **Phase 4: District Crop Yield Outlook**
-  - Colab XGBoost/LightGBM training on DES Rajasthan data with LOYO/LODO cross-validation.
-  - Compact joblib model export and TreeSHAP feature attribution explanations.
-  - Transparent fallback to 5-year rolling district means (`model_version = "baseline"`).
-- [ ] **Phase 5: Mandi Price Trends & Forecasting**
-  - Agmarknet daily price ingestion pipeline.
-  - Time-series model (LightGBM lag features / SARIMAX) with walk-forward validation.
-  - 2-4 week forecast ranges with persistence baseline fallback.
-- [ ] **Phase 6: Weather Advisory & FAO-56 Evapotranspiration Irrigation**
-  - Open-Meteo weather API integration.
-  - Penman-Monteith reference evapotranspiration ($ET_0$) and crop coefficient ($K_c$) engine.
-  - Extreme weather alerts (heatwave, frost, unseasonal rainfall).
-- [ ] **Phase 7: History, Offline PWA, Feedback & Polish**
-  - Offline sync with Service Worker and IndexedDB/localStorage.
-  - User feedback loop (`/feedback`) linked to chat and diagnoses.
-  - Full About page displaying real model metrics and academic attribution.
+- [x] **Phase 0: Architecture, Toolchain & Monorepo Scaffold**
+  - Monorepo directory structure, Docker container, render.yaml, CI workflow, .env templates.
+  - Strict CORS policy (whitelist only, never `*`).
+- [x] **Phase 1: Database, Supabase Auth & Farm Profile Management**
+  - Full PostgreSQL schema with tables: `profiles`, `farms`, `kb_chunks`, `mandi_prices`, `disease_predictions`, `messages`, `feedback`.
+  - Row Level Security (RLS) enforced across all tables (`auth.uid() = user_id`).
+  - Bigha-to-Hectare converter and personal farm context injection.
+- [x] **Phase 2: RAG Knowledge Base & Gemini Advisor Chat**
+  - Agriculture manuals from ICAR-CAZRI, SKNAU, AU Kota converted and chunked.
+  - 768-dimensional vector embeddings stored with pgvector HNSW index.
+  - Rule-based regex intent classifier routing queries to RAG context.
+  - Strict grounding: zero dosage hallucination; mandatory KVK referral on low relevance.
+- [x] **Phase 3: District Crop Yield Outlook**
+  - Official DES Rajasthan agricultural production dataset (2018–2024).
+  - 33 standardized Rajasthan districts; 6 staple crops (Mustard, Bajra, Wheat, Gram, Soybean, Cluster Bean).
+  - Leave-One-Year-Out (LOYO) and Leave-One-District-Out (LODO) validation scripts.
+  - Honest fallback to 5-year rolling district historical average (`model_version = "baseline"`).
+- [x] **Phase 4: Mandi Price Trends & Forecasting**
+  - Agmarknet daily collector with valid Data.gov.in API key.
+  - Daily commodity rates and arrivals upserted to database.
+  - Walk-forward validation over 14-day and 28-day forecasting horizons.
+- [x] **Phase 5: In-Browser Crop Disease Diagnosis**
+  - 25,943 foliar images partitioned into non-leaking train/val/test splits with MD5 deduplication.
+  - Client-side ONNX Runtime Web integration with canvas resizing and EXIF stripping.
+  - Confidence threshold (< 0.70) safe fallback to KVK referral.
+- [x] **Phase 6: Weather & Irrigation Scheduling**
+  - High-resolution hourly Open-Meteo weather integration.
+  - FAO-56 Penman-Monteith physics calculating daily reference evapotranspiration ($ET_0$).
+  - Crop coefficients ($K_c$) mapping days since sowing to crop water needs.
+  - State agro-university weather warnings (frost, heatwave, unseasonal rain).
+- [x] **Phase 7: PWA Offline Resilience, History, Feedback & Production Hardening**
+  - Offline caching of profile, prices, weather advice, and disease diagnoses.
+  - Chat offline queue in `localStorage` with automatic reconnection flush.
+  - Public `/system/metadata` endpoint and dynamic `/about` page reading live metrics.
+  - Advisory history timeline (`/history`) with intent filtering and feedback status.
+  - User feedback loop (`/feedback`) with thumbs up/down and actual outcome recordings.
+  - Structured request logging middleware and sliding-window rate limiters.
+  - ErrorBoundary and bilingual 404 page.
 
 ---
 
-## 🔒 4. Hard Security & Safety Rules
+## 🔒 4. Security, Privacy & Safety Guidelines
 
-1. **No Frontend Secrets**: `VITE_` variables hold only the public Supabase URL and public anon key. The database connection string, service role key, and Gemini API key exist strictly as backend environment variables.
-2. **Strict CORS**: The FastAPI CORS middleware permits only the configured `FRONTEND_ORIGIN`. Wildcards (`"*"`) are explicitly rejected.
-3. **Privacy & Upload Safety**: Images are checked for JPEG/PNG format, limited to 5 MB, and completely stripped of EXIF GPS coordinates. Photos are never stored unless the user checks the explicit opt-in box.
-4. **Scoping**: All database operations check `auth.uid() = user_id`. No user can query or alter another farmer's profile, questions, or diagnosis records.
-5. **No Hallucinated Doses**: Gemini is restricted to retrieved passages for pesticide names or doses. If no matching treatment exists in the knowledge base, it outputs:
+1. **Frontend Secret Hygiene**: Only `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` are exposed to the client. The database connection string, service role key, and Gemini API keys reside exclusively in backend environment variables.
+2. **Row Level Security (RLS)**: Enforced in Postgres via `auth.uid() = user_id`. No farmer can view, modify, or delete another user's farm profile, chat history, or diagnosis records.
+3. **EXIF Stripping & Privacy**: All uploaded images are sanitized in memory to strip camera metadata and GPS coordinates before processing. Photos are stored in Supabase private buckets **only** when the user explicitly checks the opt-in checkbox.
+4. **Hallucination Prevention**: Prompts strictly constrain Gemini to retrieved university context. If treatment information is absent, the system responds:
    > *"मुझे इस विषय में पूरी जानकारी नहीं है, कृपया अपने नजदीकी कृषि विज्ञान केंद्र (KVK) से संपर्क करें।"*
 
 ---
 
-## 📊 5. Scientific Honesty & Baseline Fallbacks
-
-Per academic standards, synthetic data and fake model accuracies are forbidden:
-- **Missing Models**: When trained `.joblib` or `.onnx` models are not loaded, the application transparently runs deterministic baseline algorithms:
-  - Yield: District 5-year rolling historical mean.
-  - Price: Persistence baseline ("Same as last week" / lag-7 value).
-  - Disease: Low confidence ($< 0.70$) KVK referral.
-- **Reporting**: Any response generated by a baseline algorithm reports:
-  ```json
-  "model_version": "baseline"
-  ```
-- **Real Evaluation**: Evaluation scripts (`scripts/evaluate_*.py`) execute real mathematical validations (LOYO/LODO, Walk-forward, Confusion matrix) on real datasets.
-
----
-
-## 🚀 6. Local Development Setup
+## 🚀 5. Local Development Setup
 
 ### Prerequisites
 - Python 3.11+
@@ -135,66 +146,120 @@ Per academic standards, synthetic data and fake model accuracies are forbidden:
 
 ### Backend Setup
 ```bash
-# 1. Navigate to backend directory
+# 1. Open backend directory
 cd backend
 
 # 2. Create virtual environment
 python3 -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+source venv/bin/activate  # Windows: venv\Scripts\activate
 
 # 3. Install dependencies
 pip install -r requirements.txt
 
-# 4. Configure environment variables
+# 4. Configure environment
 cp .env.example .env
-# Edit .env with your Supabase credentials and Gemini API Key
+# Fill in DATABASE_URL, SUPABASE_JWT_SECRET, GEMINI_API_KEY
 
-# 5. Run tests
+# 5. Run automated test suite
 pytest -v tests/
 
-# 6. Start development server
+# 6. Start backend development server
 uvicorn app.main:app --reload --port 8000
 ```
-API Documentation will be available at `http://localhost:8000/docs`.
+Interactive OpenAPI documentation will be accessible at: `http://localhost:8000/docs`
 
 ### Frontend Setup
 ```bash
-# 1. Navigate to frontend directory
+# 1. Open frontend directory
 cd frontend
 
 # 2. Install dependencies
 npm install
 
-# 3. Configure environment variables
+# 3. Configure environment
 cp .env.example .env
-# Edit .env with your VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY
+# Configure VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY
 
-# 4. Start Vite dev server
+# 4. Start Vite development server
 npm run dev
 ```
 Open `http://localhost:5173` in your browser.
 
 ---
 
-## ☁️ 7. Production Deployment Instructions
+## 🧪 6. Evaluation Instructions
 
-### Backend (Render Free Web Service)
-1. Push this repository to GitHub.
-2. In Render Dashboard, click **New > Blueprint** and select your repository (it automatically reads `render.yaml`).
-3. Set the required sensitive environment variables (`SUPABASE_URL`, `SUPABASE_JWT_SECRET`, `DATABASE_URL`, `GEMINI_API_KEY`, `FRONTEND_ORIGIN`).
-4. Render deploys the Docker container (`Dockerfile`) using Python 3.11-slim with health check target `/health`.
+All evaluation scripts execute real, transparent mathematical verifications without fabricated metrics:
 
-### Frontend (Vercel or Netlify)
-1. Connect repository to Vercel or Netlify.
-2. Root directory: `frontend`.
-3. Build command: `npm run build`.
-4. Output directory: `dist`.
-5. Set environment variables:
-   - `VITE_SUPABASE_URL`
-   - `VITE_SUPABASE_ANON_KEY`
-   - `VITE_API_BASE_URL` (URL of your deployed Render service)
+### 1. Evaluate Yield Baseline (LOYO & LODO Cross-Validation)
+```bash
+python scripts/evaluate_yield.py --input data/yield_data/cleaned_yield.csv --crop mustard
+```
+*Output: LOYO MAE: 194.75 kg/ha (RMSE 253.42 kg/ha) | LODO MAE: 256.89 kg/ha (RMSE 323.09 kg/ha).*
+
+### 2. Evaluate Mandi Price Walk-Forward Forecasts
+```bash
+python scripts/evaluate_price.py --input data/mandi_data/cleaned_mandi.csv --commodity Mustard --mandi "Rajasthan APMC"
+```
+*Evaluates rolling walk-forward MAE and persistence baseline across 14-day and 28-day forecasting windows.*
+
+### 3. Evaluate Disease Dataset Deduplication & Class Splits
+```bash
+python scripts/prepare_disease_dataset.py --verify-only
+```
+*Confirms 25,943 total images across 24 classes with 0% cross-split duplicate leakage.*
+
+### 4. Evaluate RAG Knowledge Grounding & Hallucination Rate
+```bash
+python scripts/evaluate_rag.py --eval-file data/rag_eval_questions.csv
+```
+*Measures Citation Grounding Rate (Target: 100%) and Hallucination Rate for ungrounded chemicals (Target: 0.0%).*
+
+### 5. Run Full Backend Unit & Integration Tests
+```bash
+backend/venv/bin/pytest backend/tests/
+```
+*Runs all 72 test cases across authentication, schemas, RAG grounding, intent routing, rate limiting, and system transparency.*
 
 ---
 
-## ⚖️ 8. Advisory Disclaimer
-> **सूचना / Disclaimer**: यह पोर्टल केवल निर्णय-सहायता मार्गदर्शन प्रदान करता है। किसी भी गंभीर फसल रोग, रासायनिक छिड़काव या वित्तीय निर्णय के लिए सदैव अपने निकटतम कृषि विज्ञान केंद्र (KVK) अथवा प्रमाणित कृषि विशेषज्ञ से प्रत्यक्ष परामर्श लें।
+## ☁️ 7. Production Deployment Instructions
+
+### Backend (Render Free-Tier Web Service)
+1. In the [Render Dashboard](https://dashboard.render.com), create a new **Web Service** connected to your repository.
+2. Select **Docker** environment using root `Dockerfile`.
+3. Set environment variables:
+   - `ENVIRONMENT=production`
+   - `DATABASE_URL` (Supabase pooled connection string `postgresql://...:6543/postgres`)
+   - `SUPABASE_URL` (`https://<project-ref>.supabase.co`)
+   - `SUPABASE_JWT_SECRET` (Supabase Project Settings > API > JWT Secret)
+   - `GEMINI_API_KEY` (Google AI Studio Key)
+   - `FRONTEND_ORIGIN` (`https://your-frontend-app.vercel.app`)
+4. Health check path: `/health`.
+
+### Frontend (Vercel or Netlify)
+1. Import repository to Vercel or Netlify.
+2. Root directory: `frontend`.
+3. Build command: `npm run build`.
+4. Output directory: `dist`.
+5. Environment variables:
+   - `VITE_SUPABASE_URL`
+   - `VITE_SUPABASE_ANON_KEY`
+   - `VITE_API_BASE_URL` (`https://your-render-backend.onrender.com`)
+
+---
+
+## ⚠️ 8. Known Limitations & Explicit Boundaries
+
+1. **Server RAM Ceiling**: Designed specifically for the Render 512MB RAM cap. Heavy server-side neural networks are intentionally avoided; vision tasks run on the client via WebAssembly.
+2. **Deterministic Baseline Fallbacks**: When specialized ML models are not yet trained on verified multi-year historical series, the system explicitly reports `model_version: "baseline"`. We never fabricate synthetic predictions.
+3. **Agmarknet Arrival Delays**: Mandi price data relies on the official Data.gov.in API feed; local APMC market closures on Sundays or holidays are reflected as unchanged modal prices.
+4. **Camera & Lighting Sensitivity**: Browser-side leaf disease detection requires clear focus and natural daylight. For ambiguous lesions, the system enforces a strict $< 70\%$ confidence fallback redirecting farmers to certified KVK extension officers.
+5. **Non-Clinical Advisory Scope**: Outputs from this platform serve as decision-support guidance only and do not replace certified physical inspections by state agricultural field supervisors.
+
+---
+
+## ⚖️ 9. License & Attribution
+- **License**: MIT Open Source License.
+- **Academic Grounding**: ICAR-CAZRI (Jodhpur), Agriculture University Kota, SKNAU (Jobner), SKRAU (Bikaner).
+- **Data Providers**: Directorate of Economics & Statistics (DES Rajasthan), Agmarknet / Data.gov.in, Open-Meteo.

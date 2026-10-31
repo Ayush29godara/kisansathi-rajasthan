@@ -29,6 +29,37 @@
     "feature_weather": "Weather & Irrigation",
     "feature_weather_desc": "FAO-56 evapotranspiration irrigation advisory and regional weather alerts"
   },
+  "onboarding": {
+    "title": "Farm Profile Setup",
+    "subtitle": "Personalized according to Rajasthan’s 41 districts and agro-climatic zones",
+    "district": "District (Rajasthan 41 Districts)",
+    "tehsil": "Tehsil / Sub-district",
+    "crop": "Primary Cultivated Crop",
+    "land_area": "Farm Land Area",
+    "bigha": "Bigha",
+    "hectare": "Hectare",
+    "irrigation": "Irrigation Source",
+    "sowing_date": "Sowing Date",
+    "save_button": "Save Profile & Proceed",
+    "saving": "Saving...",
+    "conversion_note": "1 Hectare ≈ 3.95 Pucca Bigha (Rajasthan standard)"
+  },
+  "chat": {
+    "title": "Crop Advisor",
+    "subtitle": "Verified advice from ICAR/CAZRI sources",
+    "placeholder": "Ask about crops, diseases, fertilizers, or mandi prices...",
+    "send": "Send",
+    "voice_start": "Ask by voice",
+    "voice_listening": "Listening...",
+    "voice_unsupported": "Voice input not supported in this browser",
+    "searching": "Searching agricultural references...",
+    "sources_label": "Verified Source Citations",
+    "no_sources": "No verified sources found",
+    "error": "Could not get a response. Please try again.",
+    "disclaimer": "Advice is guidance only. Contact your nearest KVK for specific issues.",
+    "model_badge": "Gemini + RAG",
+    "welcome_message": "Hello! I am KisanSathi. You can ask me anything about crops, diseases, fertilizers, mandi prices, or weather."
+  },
   "common": {
     "submit": "Submit",
     "loading": "Loading...",
